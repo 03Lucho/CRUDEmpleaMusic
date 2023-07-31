@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Aprendiz;
 
+use App\Models\User;
+
 class AuthController extends Controller
 {
     public function showLoginForm()
