@@ -26,21 +26,30 @@ class AprendizController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $data = $request->validate([
-            'nombre' => 'required|max:50',
-            'apellido' => 'required|max:50',
-            'email' => 'required|email|unique:aprendices',
-            'contrasena' => 'required|min:6|max:15',
-            'telefono' => 'required|max:25',
-            'descripcion' => 'required|max:700',
-        ]);
 
-        Aprendiz::create($data);
+public function store(Request $request)
+{
+    $data = $request->validate([
+        'nombre' => 'required|max:50',
+        'apellido' => 'required|max:50',
+        'email' => 'required|email|unique:aprendices',
+        'contrasena' => 'required|min:6|max:15',
+        'telefono' => 'required|max:25',
+        'descripcion' => 'required|max:700',
+        'Imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Agregar validación para la foto de perfil
+    ]);
 
-        return redirect()->route('aprendiz.index')->with('success', 'Aprendiz creado exitosamente.');
+    // Procesar la imagen y almacenarla en el servidor
+    if ($request->hasFile('Imagen')) {
+        $photoName = $request->file('Imagen')->store('public/fotos_vecinos');
+        $data['Imagen'] = basename($photoName);
     }
+
+    Aprendiz::create($data);
+
+    return redirect()->route('aprendiz.index')->with('success', 'Aprendiz creado exitosamente.');
+}
+
 
     /**
      * Display the specified resource.

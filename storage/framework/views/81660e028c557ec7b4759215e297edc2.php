@@ -8,12 +8,18 @@
 </head>
 <body>
     <h1>Crea tu perfil de Aprendiz</h1>
-    <form action="<?php echo e(route('aprendices.store')); ?>" method="POST">
+    <form action="<?php echo e(route('aprendices.store')); ?>" method="POST" enctype="multipart/form-data">
         <?php echo csrf_field(); ?>
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
         <br>
 
+        <!-- Agregar campo para la foto de perfil -->
+        <label for="foto">Foto de Perfil:</label>
+        <input type="file" id="foto" name="foto" accept="image/*" required>
+        <br>
+
+        <!-- Resto de los campos del formulario -->
         <label for="apellido">Apellido:</label>
         <input type="text" id="apellido" name="apellido" required>
         <br>
