@@ -6,7 +6,7 @@
 <body>
     <h1>Lista de Aprendices</h1>
     <a href="{{ route('aprendices.create') }}">Crear Nuevo Aprendiz</a>
-
+    
     @if (session('success'))
         <p>{{ session('success') }}</p>
     @endif
@@ -18,6 +18,8 @@
                 <th>Apellido</th>
                 <th>Email</th>
                 <th>Telefono</th>
+                <th>Descripcion</th>
+                <th>Foto</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -28,6 +30,8 @@
                     <td>{{ $aprendiz->apellido }}</td>
                     <td>{{ $aprendiz->email }}</td>
                     <td>{{ $aprendiz->telefono }}</td>
+                    <td>{{ $aprendiz->descripcion }}</td>
+                    <td>{{ $aprendiz->Imagen }}</td>
                     <td>
                         <a href="{{ route('aprendices.show', $aprendiz->idaprendiz) }}">Ver</a>
                         <a href="{{ route('aprendices.edit', $aprendiz->idaprendiz) }}">Editar</a>

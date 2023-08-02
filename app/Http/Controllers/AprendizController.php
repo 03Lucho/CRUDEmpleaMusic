@@ -29,6 +29,7 @@ class AprendizController extends Controller
 
 public function store(Request $request)
 {
+    dd($request->all());
     $data = $request->validate([
         'nombre' => 'required|max:50',
         'apellido' => 'required|max:50',
@@ -36,13 +37,13 @@ public function store(Request $request)
         'contrasena' => 'required|min:6|max:15',
         'telefono' => 'required|max:25',
         'descripcion' => 'required|max:700',
-        'Imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Agregar validación para la foto de perfil
+        'Imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:28048', // Agregar validación para la foto de perfil
     ]);
 
     // Procesar la imagen y almacenarla en el servidor
     if ($request->hasFile('Imagen')) {
         $photoName = $request->file('Imagen')->store('public/fotos_vecinos');
-        $data['Imagen'] = basename($photoName);
+        $data['Imagen'] = basename($photoName); // Mantén 'Imagen' como está
     }
 
     Aprendiz::create($data);
@@ -58,10 +59,7 @@ public function store(Request $request)
     {
         return view('aprendiz.show', compact('aprendiz'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
+    
     public function edit(Aprendiz $aprendiz)
     {
         return view('aprendiz.edit', compact('aprendiz'));

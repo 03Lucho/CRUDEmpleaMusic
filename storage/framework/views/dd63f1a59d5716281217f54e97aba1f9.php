@@ -5,6 +5,7 @@
 </head>
 <body>
     <h1>Lista de Aprendices</h1>
+    <a href="<?php echo e(route('aprendices.create')); ?>">Crear Nuevo Aprendiz</a>
     
     <?php if(session('success')): ?>
         <p><?php echo e(session('success')); ?></p>
@@ -17,6 +18,8 @@
                 <th>Apellido</th>
                 <th>Email</th>
                 <th>Telefono</th>
+                <th>Descripcion</th>
+                <th>Foto</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -27,6 +30,8 @@
                     <td><?php echo e($aprendiz->apellido); ?></td>
                     <td><?php echo e($aprendiz->email); ?></td>
                     <td><?php echo e($aprendiz->telefono); ?></td>
+                    <td><?php echo e($aprendiz->descripcion); ?></td>
+                    <td><?php echo e($aprendiz->Imagen); ?></td>
                     <td>
                         <a href="<?php echo e(route('aprendices.show', $aprendiz->idaprendiz)); ?>">Ver</a>
                         <a href="<?php echo e(route('aprendices.edit', $aprendiz->idaprendiz)); ?>">Editar</a>
