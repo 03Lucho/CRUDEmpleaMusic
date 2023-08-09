@@ -29,20 +29,20 @@ class AprendizController extends Controller
 
 public function store(Request $request)
 {
-    dd($request->all());
+   
     $data = $request->validate([
         'nombre' => 'required|max:50',
         'apellido' => 'required|max:50',
-        'email' => 'required|email|unique:aprendices',
+        'email' => 'required|email|unique:aprendizes',
         'contrasena' => 'required|min:6|max:15',
         'telefono' => 'required|max:25',
         'descripcion' => 'required|max:700',
         'Imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:28048', // Agregar validación para la foto de perfil
     ]);
-
+    dd($data->all());
     // Procesar la imagen y almacenarla en el servidor
     if ($request->hasFile('Imagen')) {
-        $photoName = $request->file('Imagen')->store('public/fotos_vecinos');
+        $photoName = $request->file('Imagen')->store('public/fotos_aprendiz');
         $data['Imagen'] = basename($photoName); // Mantén 'Imagen' como está
     }
 
@@ -73,20 +73,29 @@ public function store(Request $request)
         $data = $request->validate([
             'nombre' => 'required|max:50',
             'apellido' => 'required|max:50',
-            'email' => 'required|email|unique:aprendices,email,' . $aprendiz->idaprendiz,
+            'email' => 'required|email|unique:aprendizes,email,' . $aprendiz->idaprendiz,
             'contrasena' => 'nullable|min:6|max:15',
             'telefono' => 'required|max:25',
             'descripcion' => 'required|max:700',
+            'Imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:28048',
         ]);
-
+    
         if ($request->has('contrasena')) {
             $data['contrasena'] = bcrypt($request->contrasena);
         }
-
+    
+        if ($request->hasFile('Imagen')) {
+            $file = $request->file('Imagen');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('public/fotos_aprendiz', $fileName);
+            $data['foto'] = $fileName;
+        }
+    
         $aprendiz->update($data);
-
+    
         return redirect()->route('aprendiz.index')->with('success', 'Aprendiz actualizado exitosamente.');
     }
+    
 
     /**
      * Remove the specified resource from storage.

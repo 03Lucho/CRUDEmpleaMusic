@@ -6,9 +6,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 
-use App\Models\Aprendiz;
-
-use App\Models\User;
+use App\Models\Usuario;
 
 class AuthController extends Controller
 {
@@ -16,32 +14,43 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
-
     public function login(Request $request)
     {
         $credentials = $request->validate([
             'email' => 'required|email',
-            'password' => 'required',
+            'contrasena' => 'required',
+            'nombre' => 'required', 
+            'rol' => 'required',
         ]);
-
-        if (Auth::attempt($credentials)) {
+    
+    
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->contrasena])) {
             $user = Auth::user();
-            if ($user->rol === 'administrador') {
-                return redirect()->route('admin.dashboard');
-            } elseif ($user->rol === 'profesor') {
-                return redirect()->route('profesor.dashboard');
-            } else {
-                return redirect()->route('aprendiz.dashboard');
+            $rol = $request->input('rol');
+            $nombre = $request->input('nombre');
+            
+
+            Usuarios::create([
+                'nombre' => $request->nombre,
+                'rol' => $request->rol,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+
+
+            if ($rol === 'admin') {
+                return redirect()->route('admin.index');
+            } elseif ($rol === 'profesor') {
+                return redirect()->route('profesor.index');
+            } elseif ($rol === 'aprendiz') {
+                if ($user->tienePerfil()) {
+                    return redirect()->route('aprendices.show', $user->id);
+                } else {
+                    return redirect()->route('aprendices.create');
+                }
             }
         } else {
             return back()->withErrors(['email' => 'Credenciales incorrectas']);
         }
     }
-
-    public function logout()
-    {
-        Auth::logout();
-        return redirect('/login');
-    }
 }
-

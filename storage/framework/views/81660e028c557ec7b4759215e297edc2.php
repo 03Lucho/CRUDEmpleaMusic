@@ -4,44 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Crea perfil Sesión Aprendiz</title>
+    <title>Sesión Aprendiz</title>
 </head>
 <body>
-    <h1>Crea tu perfil de Aprendiz</h1>
-    <form action="<?php echo e(route('aprendices.store')); ?>" method="POST" enctype="multipart/form-data">
+    <h1>Datos Inicio De Sesion</h1>
+    <form method="POST" action="<?php echo e(route('login')); ?>" enctype="multipart/form-data">
         <?php echo csrf_field(); ?>
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
         <br>
-
-        <!-- Agregar campo para la foto de perfil -->
-        <label for="Imagen">Foto de Perfil:</label>
-        <input type="file" id="Imagen" name="Imagen" accept="image/*" required>
-        <br>
-
-        <!-- Resto de los campos del formulario -->
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido" required>
-        <br>
-
+    
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
         <br>
-
+    
         <label for="contrasena">Contraseña:</label>
         <input type="password" id="contrasena" name="contrasena" required>
         <br>
-
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" required>
-        <br>
-
-        <label for="descripcion">Descripción:</label>
-        <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
-        <br>
-
-        <button type="submit">Guardar Perfil</button>
+    
+        <div class="form-group">
+            <label for="rol">Selecciona un Rol:</label><br>
+            <input type="radio" id="rol_admin" name="rol" value="admin" required>
+            <label for="rol_admin">Admin</label><br>
+            <input type="radio" id="rol_profesor" name="rol" value="profesor">
+            <label for="rol_profesor">Profesor</label><br>
+            <input type="radio" id="rol_aprendiz" name="rol" value="aprendiz">
+            <label for="rol_aprendiz">Aprendiz</label><br>
+        </div>
+    
+        <button type="submit">Iniciar Registro</button>
     </form>
+    
 </body>
 </html>
 <?php /**PATH C:\laragon\www\empleamusic\resources\views/auth/login.blade.php ENDPATH**/ ?>
