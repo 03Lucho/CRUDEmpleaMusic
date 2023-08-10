@@ -36,5 +36,4 @@
     </form>
     
 </body>
-</html>
-<?php /**PATH C:\laragon\www\empleamusic\resources\views/auth/login.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\laragon\www\empleamusic\resources\views/auth/login.blade.php ENDPATH**/ ?>

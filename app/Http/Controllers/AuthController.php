@@ -12,32 +12,23 @@ class AuthController extends Controller
 {
     public function showLoginForm()
     {
-        return view('auth.login');
+        return view('menu.menu');
     }
     public function login(Request $request)
     {
         $credentials = $request->validate([
+            'nombre' => 'required',
             'email' => 'required|email',
-            'contrasena' => 'required',
-            'nombre' => 'required', 
+            'password' => 'required',
             'rol' => 'required',
         ]);
     
+        $rol = $request->input('rol');
     
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->contrasena])) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
-            $rol = $request->input('rol');
-            $nombre = $request->input('nombre');
             
-
-            Usuarios::create([
-                'nombre' => $request->nombre,
-                'rol' => $request->rol,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-            ]);
-
-
+            // Procesar el rol seleccionado
             if ($rol === 'admin') {
                 return redirect()->route('admin.index');
             } elseif ($rol === 'profesor') {

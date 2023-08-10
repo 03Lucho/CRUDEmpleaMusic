@@ -5,17 +5,20 @@ use App\Http\Controllers\AprendizController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfesorController;
+use App\Http\Controllers\Auth\RegisterController;
 
+Route::get('/menu', function () {
+    return view('menu.menu');
+})->name('menu');
 
-Route::get('/', function () {
-    return view('home');
-})->middleware('/home/home');
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
 
-
-
-Route::get('/', [AuthController::class, 'showLoginForm'])->name('home');
+Route::get('/', [AuthController::class, 'showLoginForm'])->name('menu');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
 
 // Rutas para los roles específicos
 Route::get('/admin', [AdminController::class, 'index'])

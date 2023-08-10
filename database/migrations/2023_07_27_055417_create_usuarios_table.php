@@ -12,8 +12,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('usuarios', function (Blueprint $table) {
-           
-            $table->string('rol')->default('aprendiz');
+            $table->string('nombre');
+            $table->string('email');
+            $table->string('password');
+            $table->string('rol');
             $table->timestamps();
         });
     }
