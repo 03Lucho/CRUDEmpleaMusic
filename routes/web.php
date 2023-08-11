@@ -19,12 +19,8 @@ Route::get('/', function () {
 //index
 Route::get('Profesores/index','App\Http\Controllers\ProfesorController@index')->name('profesores.index');
 //perfil
-<<<<<<< HEAD
 Route::get('Profesores/crearperfil','App\Http\Controllers\ProfesorController@perfilcreate')->name('profesores.createperfil');
 Route::post('Profesores/agregarperfil','App\Http\Controllers\ProfesorController@perfilstore')->name('profesores.storeperfil');
-=======
-
->>>>>>> bbe2b4ea4e9bba218dc38fbb9c842dba85b5648b
 
 
 Route::get('Profesores/perfil','App\Http\Controllers\ProfesorController@perfill')->name('profesores.perfill');
@@ -36,10 +32,6 @@ Route::post('Profesores/agregar','App\Http\Controllers\ProfesorController@store'
 //editar y eliminar clase
 Route::get('Profesores/editclase/{id}','App\Http\Controllers\ProfesorController@editclass')->name('profesores.editarclases');
 Route::get('Profesores/actualizarclase/{id}','App\Http\Controllers\ProfesorController@updateclass')->name('profesores.updateclass');
-<<<<<<< HEAD
-=======
-Route::get('Profesores/eliminarclase/{id}','App\Http\Controllers\ProfesorController@destroyclass')->name('profesores.destroyclass');
->>>>>>> bbe2b4ea4e9bba218dc38fbb9c842dba85b5648b
 //solicitudes
 Route::get('Profesores/solicitudes','App\Http\Controllers\ProfesorController@solicitud')->name('profesores.solicitudes');
 //rechazar solicitud
@@ -65,11 +57,6 @@ Route::post('Profesores/agregarcomentario','App\Http\Controllers\ProfesorControl
 //administradores
 //index
 Route::get('Administradores/index','App\Http\Controllers\AdminController@indexcoment')->name('admins.index');
-<<<<<<< HEAD
-=======
-//eliminar comentario
-Route::get('Administradores/rechazar/{id}','App\Http\Controllers\AdminController@destroycoment')->name('admins.destroycoment');
->>>>>>> bbe2b4ea4e9bba218dc38fbb9c842dba85b5648b
 //crear y almacenar instrumentos
 Route::get('instrumentos/crear','App\Http\Controllers\AdminController@instrucreate')->name('instru.create');
 Route::post('instrumentos/agregar','App\Http\Controllers\AdminController@intrustore')->name('instru.store');

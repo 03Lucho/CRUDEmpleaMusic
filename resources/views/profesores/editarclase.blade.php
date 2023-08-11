@@ -21,7 +21,6 @@
         <br>
         <div>
             <label for="nombre">Nombre</label>
-<<<<<<< HEAD
             <input type="text" name="nombre" id="mombre" value="{{$clase->nombre}}"><br><br>
             <label for="descripcion">Descripcion</label>
             <input type="text" name="descripcion" id="descripcion" value="{{$clase->descripcion}}"><br><br>
@@ -32,15 +31,6 @@
             <input type="time" name="horafin" id="horafin" value="{{$clase->horafin}}"><br><br>
             <label for="fecha">Fecha</label >
             <input type="date" name="fecha" id="fecha" value="{{$clase->fecha}}">
-=======
-            <input type="text" name="nombre" id="mombre" value="{{$clase->nombre}}">
-            <label for="descripcion">Descripcion</label>
-            <input type="text" name="descripcion" id="descripcion" value="{{$clase->descripcion}}">
-            <label for="costo">Costo</label>
-            <input type="text" name="costo" id="costo" value="{{$clase->costo}}">
-            <label for="disponibilidad">Disponibilidad</label >
-            <input type="text" name="disponibilidad" id="disponibilidad" value="{{$clase->disponibilidad}}">
->>>>>>> bbe2b4ea4e9bba218dc38fbb9c842dba85b5648b
         </div>
         <br>
         <button>Actualizar</button>

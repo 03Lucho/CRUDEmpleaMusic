@@ -20,18 +20,11 @@ class ProfesorController extends Controller
 
         //
         $clase = DB::table('clases')
-<<<<<<< HEAD
                     ->join('profesores','profesores.idprofesor','=','clases.idprofesor')
                     ->join('instrumentos','instrumentos.idinstrumento','=','clases.idinstrumento')
                     ->select('clases.idclase','clases.nombre as nombre','clases.idinstrumento','instrumentos.nombre as nomins','clases.descripcion as descripcion','clases.fecha as fecha','clases.horainicio as horainicio','clases.horafin as horafin','clases.costo as costo')
                     ->where('clases.idprofesor','=','33')
                     ->where('estado','1')
-=======
-                    ->join('profesors','profesors.idprofesor','=','clases.idprofesor')
-                    ->join('instrumentos','instrumentos.idinstrumento','=','clases.idinstrumento')
-                    ->select('clases.idclase','clases.nombre as nombre','clases.idinstrumento','instrumentos.nombre as nomins','clases.descripcion as descripcion','clases.disponibilidad as disponibilidad','clases.costo as costo')
-                    ->where('clases.idprofesor','=','2')
->>>>>>> bbe2b4ea4e9bba218dc38fbb9c842dba85b5648b
                     ->orderby('clases.nombre','ASC')
                     ->get();
 
@@ -43,7 +36,6 @@ class ProfesorController extends Controller
     {
 
         //
-<<<<<<< HEAD
         $profesor = DB::table('profesores')
                                 ->select('idprofesor','nombre','apellido','imagen','email','telefono','descripcion','aniosexperiencia','especialidad')
                                 ->where('idprofesor','=','33')
@@ -86,14 +78,6 @@ class ProfesorController extends Controller
     
     
 
-=======
-        $profesor = DB::table('profesors')
-                                ->select('idprofesor','nombre','apellido','imagen','email','telefono','descripcion','aniosexperiencia','especialidad')
-                                ->where('idprofesor','=','2')
-                                ->get();
-        return view ('profesores/perfil',['profesor'=>$profesor]);
-    }
->>>>>>> bbe2b4ea4e9bba218dc38fbb9c842dba85b5648b
     //editar el perfil del profesor mediante la vista
     public function perfiledit(string $id)
     {
@@ -105,7 +89,6 @@ class ProfesorController extends Controller
      * actualiza los datos del edit perfil del profesor
      */
     public function perfilupdate(Request $request, string $id)
-<<<<<<< HEAD
 {
     $profesor = Profesor::findOrFail($id); // Primero, busca el profesor por su ID
 
@@ -132,20 +115,6 @@ class ProfesorController extends Controller
     return redirect()->route('profesores.perfill');
 }
 
-=======
-    {
-        //
-        $profesor = Profesor::findOrFail($id);
-        $profesor->update($request->all());
-        if ($request->hasFile('imagen')){
-            $file = $request->file('imagen');
-            $FileName = time() . '_' . $file->getClientOriginalName();
-            $file->storeAs('public/perfil_profesores',$FileName);
-            $profesor->imagen = $FileName;
-        }
-        return redirect()->route('profesores.perfill');
-    }
->>>>>>> bbe2b4ea4e9bba218dc38fbb9c842dba85b5648b
     /**
      *retorna a la vista para crear una clase
      */
@@ -163,11 +132,7 @@ class ProfesorController extends Controller
     {
         //
         Clase::create([
-<<<<<<< HEAD
             'idprofesor'=>'33',
-=======
-            'idprofesor'=>'16',
->>>>>>> bbe2b4ea4e9bba218dc38fbb9c842dba85b5648b
             'idinstrumento'=>$request['instrument'],
             'nombre'=>$request['nombre'],
             'descripcion'=>$request['descripcion'],
@@ -200,20 +165,6 @@ class ProfesorController extends Controller
        
     }
 
-<<<<<<< HEAD
-=======
-    /**
-     * eliminar una clase
-     */
-    public function destroyclass(string $id)
-    {
-        //
-        $clase = Clase::findOrFail($id);
-        $clase->delete();
-        return redirect()->route('profesores.index');
-    }
-
->>>>>>> bbe2b4ea4e9bba218dc38fbb9c842dba85b5648b
     //aceptar o rechazar solicitudes
     public function solicitud()
     {
@@ -223,11 +174,7 @@ class ProfesorController extends Controller
                     ->join('aprendizes','aprendizes.idaprendiz','=','solicitudagendas.idaprendiz')
                     ->join('clases','clases.idclase','=','solicitudagendas.idclase')
                     ->select('solicitudagendas.idsolicitudagenda','aprendizes.idaprendiz','aprendizes.nombre as nomapren','clases.idclase','clases.idprofesor','clases.nombre as nomclas','solicitudagendas.fechaagendada','solicitudagendas.fechahora','solicitudagendas.descripcion')
-<<<<<<< HEAD
                     ->where('clases.idprofesor','=','33')
-=======
-                    ->where('clases.idprofesor','=','2')
->>>>>>> bbe2b4ea4e9bba218dc38fbb9c842dba85b5648b
                     ->orderby('nomclas','ASC')
                     ->get();
 
@@ -297,11 +244,7 @@ class ProfesorController extends Controller
     {
         //
         Comentario::create([
-<<<<<<< HEAD
             'idprofesor'=>'33',
-=======
-            'idprofesor'=>'16',
->>>>>>> bbe2b4ea4e9bba218dc38fbb9c842dba85b5648b
             'descripcion'=>$request['descripcion'],
             'fechahora'=>now(),
             'tipo'=>$request['tipo']

@@ -14,41 +14,25 @@
             <td style="border:2px solid black; padding:5px">Nombre</td>
             <td style="border:2px solid black; padding:5px">Instrumento</td>
             <td style="border:2px solid black; padding:5px">Descripcion</td>
-<<<<<<< HEAD
             <td style="border:2px solid black; padding:5px">Fecha</td>
             <td style="border:2px solid black; padding:5px" colspan="2">Disponibilidad</td>
             <td style="border:2px solid black; padding:5px">Costo</td>
             <td style="text-align: center; border:2px solid black;padding:5px " colspan="2">Acciones</td>
-=======
-            <td style="border:2px solid black; padding:5px">Disponibilidad</td>
-            <td style="border:2px solid black; padding:5px">Costo</td>
-            <td style="text-align: center; border:2px solid black;padding:5px " colspan="3">Acciones</td>
->>>>>>> bbe2b4ea4e9bba218dc38fbb9c842dba85b5648b
         </tr>
         @forelse ($clase as $class)
             <tr>
             <td style="border-right:2px solid black; padding:10px">{{$class->nombre}}</td>
             <td style="border-right:2px solid black; padding:10px">{{$class->nomins}}</td>
             <td style="border-right:2px solid black; padding:10px">{{$class->descripcion}}</td>
-<<<<<<< HEAD
             <td style="border-right:2px solid black; padding:10px">{{$class->fecha}}</td>
             <td style="border-right:2px solid black; padding:10px">{{$class->horainicio}}</td>
             <td style="border-right:2px solid black; padding:10px">{{$class->horafin}}</td>
-=======
-            <td style="border-right:2px solid black; padding:10px">{{$class->disponibilidad}}</td>
->>>>>>> bbe2b4ea4e9bba218dc38fbb9c842dba85b5648b
             <td style="border-right:2px solid black; padding:10px">{{$class->costo}}</td>
 
             <td>
             <a href="{{route('profesores.editarclases',$class->idclase)}}" ><button>Editar</button></a>
             </td>
             <td>
-<<<<<<< HEAD
-=======
-                <a href="{{route('profesores.destroyclass',$class->idclase)}}"onclick="return confirm('¿Estas seguro de eliminar la clase?')"><button>Eliminar</button></a>
-            </td>
-            <td>
->>>>>>> bbe2b4ea4e9bba218dc38fbb9c842dba85b5648b
                 <a href="{{route('profesores.showagen',$class->idclase)}}"><button>Ver agendas</button></a>
             </td>
             </tr>
