@@ -1,4 +1,10 @@
+@section('content')
 
+    <!-- Enlaza el archivo CSS -->
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+
+
+@endsection
 <br>
 <br>
 <div style="text-align: center; position:absolute:50%">
