@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/inicio.css') }}">
     <title>Sesión Aprendiz</title>
 </head>
 <body>
-    <h1>Datos Inicio De Sesion</h1>
+    <div class="container">
+        <div class="header">
+            <h1>Datos Inicio De Sesión</h1>
+        </div>
     <form method="POST" action="{{ route('login') }}" enctype="multipart/form-data">
         @csrf
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-        <br>
-    
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
         <br>
@@ -31,9 +31,13 @@
             <input type="radio" id="rol_aprendiz" name="rol" value="aprendiz">
             <label for="rol_aprendiz">Aprendiz</label><br>
         </div>
-    
-        <button type="submit">Iniciar Registro</button>
+        <div class="form-group">
+            <button type="submit">Iniciar Sesión</button>
+        </div>
     </form>
-    
+    <div class="footer">
+        © 2023 EmpleaMusic
+    </div>
+</div>
 </body>
 </html>

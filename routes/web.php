@@ -29,10 +29,8 @@ Route::get('/admin', [AdminController::class, 'index'])
 Route::get('/aprendices', [AprendizController::class, 'index'])->name('aprendices.index');
 Route::get('/aprendices/create', [AprendizController::class, 'create'])->name('aprendices.create');
 Route::post('/aprendices', [AprendizController::class, 'store'])->name('aprendices.store');
-Route::get('/aprendices/{aprendiz}', [AprendizController::class, 'show'])->name('aprendices.show'); 
 Route::get('/aprendices/{aprendiz}/edit', [AprendizController::class, 'edit'])->name('aprendices.edit');
 Route::put('/aprendices/{aprendiz}', [AprendizController::class, 'update'])->name('aprendices.update');
-Route::delete('/aprendices/{aprendiz}', [AprendizController::class, 'destroy'])->name('aprendices.destroy'); 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

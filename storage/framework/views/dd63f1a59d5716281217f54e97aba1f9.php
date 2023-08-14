@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Lista de Aprendices</title>
+    <link rel="stylesheet" href="<?php echo e(asset('css/index.css')); ?>">
 </head>
 <body>
     <h1>Lista de Aprendices</h1>
@@ -31,15 +32,9 @@
                     <td><?php echo e($aprendiz->email); ?></td>
                     <td><?php echo e($aprendiz->telefono); ?></td>
                     <td><?php echo e($aprendiz->descripcion); ?></td>
-                    <td><?php echo e($aprendiz->Imagen); ?></td>
+                    <td><img src="<?php echo e(asset('storage/fotos_aprendiz/' . $aprendiz->Imagen)); ?>"></td>
                     <td>
-                        <a href="<?php echo e(route('aprendices.show', $aprendiz->idaprendiz)); ?>">Ver</a>
                         <a href="<?php echo e(route('aprendices.edit', $aprendiz->idaprendiz)); ?>">Editar</a>
-                        <form action="<?php echo e(route('aprendices.destroy', $aprendiz->idaprendiz)); ?>" method="post">
-                            <?php echo csrf_field(); ?>
-                            <?php echo method_field('DELETE'); ?>
-                            <button type="submit">Eliminar</button>
-                        </form>
                     </td>
                 </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

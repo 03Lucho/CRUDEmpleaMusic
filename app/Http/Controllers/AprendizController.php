@@ -20,36 +20,36 @@ class AprendizController extends Controller
      */
     public function create()
     {
-        return view('aprendiz.create');
+        return view('aprendiz/create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
 
-public function store(Request $request)
-{
-   
-    $data = $request->validate([
-        'nombre' => 'required|max:50',
-        'apellido' => 'required|max:50',
-        'email' => 'required|email|unique:aprendizes',
-        'contrasena' => 'required|min:6|max:15',
-        'telefono' => 'required|max:25',
-        'descripcion' => 'required|max:700',
-        'Imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:28048', // Agregar validación para la foto de perfil
-    ]);
-    dd($data->all());
-    // Procesar la imagen y almacenarla en el servidor
-    if ($request->hasFile('Imagen')) {
-        $photoName = $request->file('Imagen')->store('public/fotos_aprendiz');
-        $data['Imagen'] = basename($photoName); // Mantén 'Imagen' como está
-    }
-
-    Aprendiz::create($data);
-
-    return redirect()->route('aprendiz.index')->with('success', 'Aprendiz creado exitosamente.');
-}
+     public function store(Request $request)
+     {
+         $data = $request->validate([
+             'nombre' => 'required|max:50',
+             'apellido' => 'required|max:50',
+             'email' => 'required|email|unique:aprendizes',
+             'contrasena' => 'required|min:6|max:15',
+             'telefono' => 'required|max:25',
+             'descripcion' => 'required|max:700',
+             'Imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:328048',
+         ]);
+     
+         // Procesar la imagen y almacenarla en el servidor
+         if ($request->hasFile('Imagen')) {
+            $photoName = $request->file('Imagen')->store('public/fotos_aprendiz');
+            $data['Imagen'] = basename($photoName);
+        }
+     
+         Aprendiz::create($data);
+     
+         return redirect()->route('aprendices.index')->with('success', 'Aprendiz creado exitosamente.');
+     }
+     
 
 
     /**
@@ -57,7 +57,7 @@ public function store(Request $request)
      */
     public function show(Aprendiz $aprendiz)
     {
-        return view('aprendiz.show', compact('aprendiz'));
+        return view('aprendices.show', compact('aprendiz'));
     }
     
     public function edit(Aprendiz $aprendiz)
@@ -73,14 +73,14 @@ public function store(Request $request)
         $data = $request->validate([
             'nombre' => 'required|max:50',
             'apellido' => 'required|max:50',
-            'email' => 'required|email|unique:aprendizes,email,' . $aprendiz->idaprendiz,
+            'email' => 'required|email|unique:aprendizes,email,' . $aprendiz->idaprendiz . ',idaprendiz',
             'contrasena' => 'nullable|min:6|max:15',
             'telefono' => 'required|max:25',
             'descripcion' => 'required|max:700',
-            'Imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:28048',
+            'Imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:328048',
         ]);
     
-        if ($request->has('contrasena')) {
+        if ($request->has('contrasena') && !empty($request->contrasena)) {
             $data['contrasena'] = bcrypt($request->contrasena);
         }
     
@@ -88,13 +88,15 @@ public function store(Request $request)
             $file = $request->file('Imagen');
             $fileName = time() . '_' . $file->getClientOriginalName();
             $file->storeAs('public/fotos_aprendiz', $fileName);
-            $data['foto'] = $fileName;
+            $data['Imagen'] = $fileName;
         }
     
         $aprendiz->update($data);
     
-        return redirect()->route('aprendiz.index')->with('success', 'Aprendiz actualizado exitosamente.');
+        return redirect()->route('aprendices.index')->with('success', 'Aprendiz actualizado exitosamente.');
     }
+    
+    
     
 
     /**
@@ -102,8 +104,6 @@ public function store(Request $request)
      */
     public function destroy(Aprendiz $aprendiz)
     {
-        $aprendiz->delete();
-
-        return redirect()->route('aprendiz.index')->with('success', 'Aprendiz eliminado exitosamente.');
+///
     }
 }
