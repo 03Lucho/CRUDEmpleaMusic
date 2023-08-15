@@ -25,7 +25,7 @@ Route::post('Profesores/agregarperfil','App\Http\Controllers\ProfesorController@
 
 Route::get('Profesores/perfil','App\Http\Controllers\ProfesorController@perfill')->name('profesores.perfill');
 Route::get('Profesores/editperfil/{id}','App\Http\Controllers\ProfesorController@perfiledit')->name('profesores.editarperfil');
-Route::get('Profesores/actualizar/{id}','App\Http\Controllers\ProfesorController@perfilupdate')->name('profesores.perfilupdate');
+Route::post('Profesores/actualizar/{id}','App\Http\Controllers\ProfesorController@perfilupdate')->name('profesores.perfilupdate');
 //crear y almacenar clase
 Route::get('Profesores/crear','App\Http\Controllers\ProfesorController@create')->name('profesores.create');
 Route::post('Profesores/agregar','App\Http\Controllers\ProfesorController@store')->name('profesores.store');

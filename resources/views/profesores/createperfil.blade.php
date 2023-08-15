@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Crea perfil Sesión Profesor</title>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
-<body>
+<body style="text-align: center">
     <h1>Crea tu perfil de Docente</h1>
     <form action="{{ route('profesores.storeperfil') }}" method="POST" enctype="multipart/form-data">
         @csrf

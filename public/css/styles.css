@@ -1,100 +1,82 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
 
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-    }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-    .button-container {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        top: 20px;
-    }
+/* Encabezado */
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
 
-    .button-container a {
-        text-decoration: none;
-        margin: 0 10px;
-    }
+/* Botones */
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
-    .button-container button {
-        padding: 10px 20px;
-        background-color: #3498db;
-        color: white;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-    }
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
 
-    .button-container button:hover {
-        background-color: #2980b9;
-    }
+th, td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: center;
+}
 
-    h2 {
-        text-align: center;
-        margin-top: 40px;
-    }
+th {
+    background-color: #333;
+    color: white;
+}
 
-    .table-container {
-        margin: 2% auto;
-        text-align: center;
-        border: 2px solid black;
-        width: 80%;
-    }
+/* Enlaces */
+a {
+    text-decoration: none;
+    color: #007BFF;
+}
 
-    .table-container table {
-        width: 100%;
-        border-collapse: collapse;
-    }
+a:hover {
+    text-decoration: underline;
+}
 
-    .table-container th,
-    .table-container td {
-        border: 2px solid black;
-        padding: 10px;
-    }
+/* Encabezado de sección */
+h2 {
+    font-size: 24px;
+    margin-top: 30px;
+}
 
-    .table-container th[colspan="2"],
-    .table-container td[colspan="2"] {
-        text-align: center;
-    }
+/* Formulario de comentario */
+.comment-form {
+    text-align: center;
+    margin-top: 20px;
+}
 
-    .table-container td:last-child {
-        padding: 0;
-    }
-
-    .table-container td:last-child button {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        background-color: #3498db;
-        color: white;
-        border: none;
-        cursor: pointer;
-    }
-
-    .table-container td:last-child button:hover {
-        background-color: #2980b9;
-    }
-
-    .comment-button-container {
-        text-align: center;
-        margin-top: 2%;
-    }
-
-    .comment-button-container a {
-        text-decoration: none;
-    }
-
-    .comment-button-container button {
-        padding: 10px 20px;
-        background-color: #3498db;
-        color: white;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-    }
-
-    .comment-button-container button:hover {
-        background-color: #2980b9;
-    }
+/* Pie de página */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

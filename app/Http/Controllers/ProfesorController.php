@@ -23,7 +23,7 @@ class ProfesorController extends Controller
                     ->join('profesores','profesores.idprofesor','=','clases.idprofesor')
                     ->join('instrumentos','instrumentos.idinstrumento','=','clases.idinstrumento')
                     ->select('clases.idclase','clases.nombre as nombre','clases.idinstrumento','instrumentos.nombre as nomins','clases.descripcion as descripcion','clases.fecha as fecha','clases.horainicio as horainicio','clases.horafin as horafin','clases.costo as costo')
-                    ->where('clases.idprofesor','=','33')
+                    ->where('clases.idprofesor','=','2')
                     ->where('estado','1')
                     ->orderby('clases.nombre','ASC')
                     ->get();
@@ -38,7 +38,7 @@ class ProfesorController extends Controller
         //
         $profesor = DB::table('profesores')
                                 ->select('idprofesor','nombre','apellido','imagen','email','telefono','descripcion','aniosexperiencia','especialidad')
-                                ->where('idprofesor','=','33')
+                                ->where('idprofesor','=','2')
                                 ->get();
         return view ('profesores/perfil',['profesor'=>$profesor]);
     }
@@ -85,35 +85,43 @@ class ProfesorController extends Controller
         $profesor=Profesor::findOrFail($id);             
         return view('profesores/editperfil',['profesor'=>$profesor]);
     }
+
+    
     /**
      * actualiza los datos del edit perfil del profesor
      */
     public function perfilupdate(Request $request, string $id)
-{
-    $profesor = Profesor::findOrFail($id); // Primero, busca el profesor por su ID
-
-     // Actualiza los demás campos del profesor con los valores del formulario
-    $profesor->update([
-        'nombre' => $request->input('nombre'),
-        'apellido' => $request->input('apellido'),
-        'email' => $request->input('email'),
-        'telefono' => $request->input('telefono'),
-        'descripcion' => $request->input('descripcion'),
-        'aniosexperiencia' => $request->input('aniosexperiencia'),
-        'especialidad' => $request->input('especialidad'),
-    ]);
-
-    if ($request->hasFile('imagen')) {
-        $file = $request->file('imagen');
-        $fileName = time() . '_' . $file->getClientOriginalName();
-        $file->storeAs('public/perfil_profesores', $fileName);
-        $profesor->imagen = $fileName; // Asigna el nombre de la imagen al profesor
+    {
+        $profesor = Profesor::findOrFail($id);
+    
+        $profesor->nombre = $request->input('nombre');
+        $profesor->apellido = $request->input('apellido');
+        $profesor->email = $request->input('email');
+        $profesor->telefono = $request->input('telefono');
+        $profesor->descripcion = $request->input('descripcion');
+        $profesor->aniosexperiencia = $request->input('aniosexperiencia');
+        $profesor->especialidad = $request->input('especialidad');
+    
+        if ($request->hasFile('imagen')) {
+            $file = $request->file('imagen');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('public/perfil_profesores', $fileName);
+    
+            // Eliminar la imagen anterior solo si existe y no es la predeterminada
+            if ($profesor->imagen && $profesor->imagen !== 'imagen_predeterminada.jpg') {
+                Storage::delete('public/perfil_profesores/' . $profesor->imagen);
+            }
+    
+            $profesor->imagen = $fileName;
+        }
+    
+        $profesor->save();
+    
+        return redirect()->route('profesores.perfill')->with('success', 'Perfil actualizado exitosamente');
     }
+    
 
-    $profesor -> save();
-
-    return redirect()->route('profesores.perfill');
-}
+    
 
     /**
      *retorna a la vista para crear una clase
@@ -132,7 +140,7 @@ class ProfesorController extends Controller
     {
         //
         Clase::create([
-            'idprofesor'=>'33',
+            'idprofesor'=>'2',
             'idinstrumento'=>$request['instrument'],
             'nombre'=>$request['nombre'],
             'descripcion'=>$request['descripcion'],
@@ -174,7 +182,7 @@ class ProfesorController extends Controller
                     ->join('aprendizes','aprendizes.idaprendiz','=','solicitudagendas.idaprendiz')
                     ->join('clases','clases.idclase','=','solicitudagendas.idclase')
                     ->select('solicitudagendas.idsolicitudagenda','aprendizes.idaprendiz','aprendizes.nombre as nomapren','clases.idclase','clases.idprofesor','clases.nombre as nomclas','solicitudagendas.fechaagendada','solicitudagendas.fechahora','solicitudagendas.descripcion')
-                    ->where('clases.idprofesor','=','33')
+                    ->where('clases.idprofesor','=','2')
                     ->orderby('nomclas','ASC')
                     ->get();
 
@@ -244,7 +252,7 @@ class ProfesorController extends Controller
     {
         //
         Comentario::create([
-            'idprofesor'=>'33',
+            'idprofesor'=>'2',
             'descripcion'=>$request['descripcion'],
             'fechahora'=>now(),
             'tipo'=>$request['tipo']
