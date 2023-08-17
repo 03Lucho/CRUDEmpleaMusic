@@ -23,17 +23,17 @@ Route::get('Profesores/crearperfil','App\Http\Controllers\ProfesorController@per
 Route::post('Profesores/agregarperfil','App\Http\Controllers\ProfesorController@perfilstore')->name('profesores.storeperfil');
 
 
-Route::get('Profesores/perfil','App\Http\Controllers\ProfesorController@perfill')->name('profesores.perfill');
+Route::get('Profesores/perfil/{codigoprofe}','App\Http\Controllers\ProfesorController@perfill')->name('profesores.perfill');
 Route::get('Profesores/editperfil/{id}','App\Http\Controllers\ProfesorController@perfiledit')->name('profesores.editarperfil');
 Route::post('Profesores/actualizar/{id}','App\Http\Controllers\ProfesorController@perfilupdate')->name('profesores.perfilupdate');
 //crear y almacenar clase
-Route::get('Profesores/crear','App\Http\Controllers\ProfesorController@create')->name('profesores.create');
+Route::get('Profesores/crear/{idprofesor}','App\Http\Controllers\ProfesorController@create')->name('profesores.create');
 Route::post('Profesores/agregar','App\Http\Controllers\ProfesorController@store')->name('profesores.store');
 //editar y eliminar clase
 Route::get('Profesores/editclase/{id}','App\Http\Controllers\ProfesorController@editclass')->name('profesores.editarclases');
 Route::get('Profesores/actualizarclase/{id}','App\Http\Controllers\ProfesorController@updateclass')->name('profesores.updateclass');
 //solicitudes
-Route::get('Profesores/solicitudes','App\Http\Controllers\ProfesorController@solicitud')->name('profesores.solicitudes');
+Route::get('Profesores/solicitudes/{codigo}','App\Http\Controllers\ProfesorController@solicitud')->name('profesores.solicitudes');
 //rechazar solicitud
 Route::get('Profesores/rechazar/{id}','App\Http\Controllers\ProfesorController@destroysoli')->name('profesores.rechazo');
 //aceptar solicitud
@@ -48,7 +48,7 @@ Route::get('Profesores/mostraragendas/{id}','App\Http\Controllers\ProfesorContro
 Route::get('Profesores/verperfilagendado/{id}','App\Http\Controllers\ProfesorController@showperfapren')->name('profesores.perfaprendagend');
 
 //Crear comentario
-Route::get('Profesores/crearcomentario','App\Http\Controllers\ProfesorController@comentcreate')->name('profesores.createcomentario');
+Route::get('Profesores/crearcomentario/{profecodigo}','App\Http\Controllers\ProfesorController@comentcreate')->name('profesores.createcomentario');
 Route::post('Profesores/agregarcomentario','App\Http\Controllers\ProfesorController@comentstore')->name('profesores.comentarstore');
 
 

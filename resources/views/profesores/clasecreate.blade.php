@@ -18,7 +18,7 @@
             <div>
                 <label for="idinstrumento">Seleccione el instrumento que va a esneñar</label>
                 <select name="instrument">
-                    @forelse ($instrumento as $instrum)
+                    @forelse ($instrumentos as $instrum)
                     
                     <option value="{{$instrum->idinstrumento}}" > {{$instrum->nombre}}</option>
     
@@ -28,6 +28,7 @@
             </div>
             <br>
             <div>
+                <input type="hidden" name="idprofesor" id="idprofesor" value="{{$codigo}}">
                 <label for="nombre">Nombre</label>
                 <input type="text" name="nombre" id="mombre">
                 <label for="descripcion">Descripcion</label>

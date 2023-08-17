@@ -11,9 +11,9 @@
     <br>
     <br>
     <div style="text-align: center; position:absolute:50%">
-    <a href={{route ('profesores.create')}}><button >Crear clase</button></a> <br><br>
-    <a href={{route ('profesores.solicitudes')}}><button >Solicitudes</button></a> <br><br>
-    <a href={{route ('profesores.perfill')}}><button >Perfil</button></a> <br>
+        <a href="{{ route('profesores.create', $codigo) }}"><button>Crear clase</button></a> <br><br>
+    <a href="{{route ('profesores.solicitudes',$codigo)}}"><button >Solicitudes</button></a> <br><br>
+    <a href="{{route ('profesores.perfill',$codigo)}}"><button >Perfil</button></a> <br>
     <br>
     <br>
     <h2>Mis clases creadas</h2>
@@ -50,7 +50,7 @@
         </table>
     </div>
      <div style="text-align: center; margin-top:2%">
-        <a href={{route ('profesores.createcomentario')}}><button >Realizar comentario</button></a>
+        <a href="{{route ('profesores.createcomentario',$codigo)}}"><button >Realizar comentario</button></a>
     </div>
 </body>
 </html>

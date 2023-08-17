@@ -17,28 +17,28 @@ class ProfesorController extends Controller
      */
     public function index()
     {
-
-        //
+        $codigo = 2; // El ID del profesor
         $clase = DB::table('clases')
-                    ->join('profesores','profesores.idprofesor','=','clases.idprofesor')
-                    ->join('instrumentos','instrumentos.idinstrumento','=','clases.idinstrumento')
-                    ->select('clases.idclase','clases.nombre as nombre','clases.idinstrumento','instrumentos.nombre as nomins','clases.descripcion as descripcion','clases.fecha as fecha','clases.horainicio as horainicio','clases.horafin as horafin','clases.costo as costo')
-                    ->where('clases.idprofesor','=','2')
-                    ->where('estado','1')
-                    ->orderby('clases.nombre','ASC')
-                    ->get();
-
-    return view ('profesores/index',['clase'=>$clase]);
+            ->join('profesores', 'profesores.idprofesor', '=', 'clases.idprofesor')
+            ->join('instrumentos', 'instrumentos.idinstrumento', '=', 'clases.idinstrumento')
+            ->select('clases.idprofesor', 'clases.idclase', 'clases.nombre as nombre', 'clases.idinstrumento', 'instrumentos.nombre as nomins', 'clases.descripcion as descripcion', 'clases.fecha as fecha', 'clases.horainicio as horainicio', 'clases.horafin as horafin', 'clases.costo as costo')
+            ->where('clases.idprofesor', '=', $codigo)
+            ->where('estado', '1')
+            ->orderby('clases.nombre', 'ASC')
+            ->get();
+    
+        return view('profesores.index', ['clase' => $clase, 'codigo' => $codigo]);
     }
+    
 
     //mostrar el perfil del profesor
-    public function perfill()
+    public function perfill($codigoprofe)
     {
 
         //
         $profesor = DB::table('profesores')
                                 ->select('idprofesor','nombre','apellido','imagen','email','telefono','descripcion','aniosexperiencia','especialidad')
-                                ->where('idprofesor','=','2')
+                                ->where('idprofesor','=',$codigoprofe)
                                 ->get();
         return view ('profesores/perfil',['profesor'=>$profesor]);
     }
@@ -126,12 +126,14 @@ class ProfesorController extends Controller
     /**
      *retorna a la vista para crear una clase
      */
-    public function create()
+    public function create($idprofesor)
     {
-        //
-        $instrumento =Instrumento::orderby('nombre','ASC')->get();
-        return view ('profesores/clasecreate',['instrumento'=>$instrumento]);
+        $codigo = $idprofesor;
+        $instrumentos = Instrumento::orderBy('nombre', 'ASC')->get();
+        return view('profesores.clasecreate', ['instrumentos' => $instrumentos, 'codigo' => $codigo]);
     }
+    
+
 
     /**
      * alamacena la clase en la base de datos
@@ -140,7 +142,7 @@ class ProfesorController extends Controller
     {
         //
         Clase::create([
-            'idprofesor'=>'2',
+            'idprofesor'=>$request['idprofesor'],
             'idinstrumento'=>$request['instrument'],
             'nombre'=>$request['nombre'],
             'descripcion'=>$request['descripcion'],
@@ -176,7 +178,7 @@ class ProfesorController extends Controller
     }
 
     //aceptar o rechazar solicitudes
-    public function solicitud()
+    public function solicitud($codigo)
     {
 
         //
@@ -184,7 +186,7 @@ class ProfesorController extends Controller
                     ->join('aprendizes','aprendizes.idaprendiz','=','solicitudagendas.idaprendiz')
                     ->join('clases','clases.idclase','=','solicitudagendas.idclase')
                     ->select('solicitudagendas.idsolicitudagenda','aprendizes.idaprendiz','aprendizes.nombre as nomapren','clases.idclase','clases.idprofesor','clases.nombre as nomclas','solicitudagendas.fechaagendada','solicitudagendas.fechahora','solicitudagendas.descripcion')
-                    ->where('clases.idprofesor','=','2')
+                    ->where('clases.idprofesor','=',$codigo)
                     ->orderby('nomclas','ASC')
                     ->get();
 
@@ -244,17 +246,18 @@ class ProfesorController extends Controller
 
     //comentarios
     //crear comentario
-    public function comentcreate()
+    public function comentcreate($profecodigo)
     {
         //
-        return view ('profesores/comentario');
+        $codigo = $profecodigo;
+        return view ('profesores/comentario',[ 'codigo' => $codigo]);
     }
     //almacenar comentario creado
     public function comentstore(Request $request)
     {
         //
         Comentario::create([
-            'idprofesor'=>'2',
+            'idprofesor'=>$request['idprofesor'],
             'descripcion'=>$request['descripcion'],
             'fechahora'=>now(),
             'tipo'=>$request['tipo']

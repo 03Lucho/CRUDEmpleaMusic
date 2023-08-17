@@ -21,6 +21,7 @@
             <label for="descripcion">Digite su comentario</label>
             <textarea style="margin-left: 2%; position:relative; top:50px" name="descripcion" id="descripcion" cols="60" rows="8"></textarea>
             <br><br><br>
+            <input type="hidden" name="idprofesor" id="idprofesor" value="{{$codigo}}">
             {{-- <Label>Frcha y hora en la que hace el comentario</Label>
             <input type="datetime-local" name="fechahora" id=""> --}}
             <br><br><br>
