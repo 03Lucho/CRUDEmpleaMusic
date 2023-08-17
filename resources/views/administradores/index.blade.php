@@ -12,6 +12,7 @@
     <br>
     <div style="text-align: center; ">
     <a href={{route ('instru.create')}}><button >Crear Instrumento</button></a> <br><br>
+    <a href={{route ('admins.showins')}}><button >Ver Instrumentos</button></a> <br><br>
     <br>
     <br>
     <h2>Comentarios</h2>

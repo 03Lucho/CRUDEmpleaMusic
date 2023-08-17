@@ -34,8 +34,11 @@
                 <input type="text" name="descripcion" id="descripcion">
                 <label for="costo">Costo</label>
                 <input type="text" name="costo" id="costo">
+                <label for="fecha">Fecha clase</label>
+                <input type="date" name="fecha" id="fecha">
                 <label for="disponibilidad">Disponibilidad</label>
-                <input type="text" name="disponibilidad" id="disponibilidad">
+                <input type="time" name="horainicio" id="horainicio">
+                <input type="time" name="horafin" id="horafin">
             </div>
             <br>
             <button>Enviar</button>

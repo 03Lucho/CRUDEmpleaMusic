@@ -117,7 +117,7 @@ class ProfesorController extends Controller
     
         $profesor->save();
     
-        return redirect()->route('profesores.perfill')->with('success', 'Perfil actualizado exitosamente');
+        return redirect()->route('profesores.perfill');
     }
     
 
@@ -145,7 +145,9 @@ class ProfesorController extends Controller
             'nombre'=>$request['nombre'],
             'descripcion'=>$request['descripcion'],
             'costo'=>$request['costo'],
-            'disponibilidad'=>$request['disponibilidad']
+            'fecha'=>$request['fecha'],
+            'horainicio'=>$request['horainicio'],
+            'horafin'=>$request['horafin'],
         ]);
         return redirect()->route('profesores.index');
     }

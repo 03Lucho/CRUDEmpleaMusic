@@ -16,6 +16,14 @@ class AdminController extends Controller
         $comentario= Comentario ::all();
     return view ('administradores/index',['comentario'=>$comentario]);
     }
+    //Mostrar instrumentos
+    public function showinstrus()
+    {
+        //
+        $instrumentos = Instrumento :: all();
+
+        return view ('administradores/showinstrus',['instrumentos'=>$instrumentos]);
+    }
     //Eliminar comentarios
     public function destroycoment(string $id)
     {

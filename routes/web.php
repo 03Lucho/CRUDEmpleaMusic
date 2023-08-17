@@ -60,3 +60,5 @@ Route::get('Administradores/index','App\Http\Controllers\AdminController@indexco
 //crear y almacenar instrumentos
 Route::get('instrumentos/crear','App\Http\Controllers\AdminController@instrucreate')->name('instru.create');
 Route::post('instrumentos/agregar','App\Http\Controllers\AdminController@intrustore')->name('instru.store');
+//mostrar instrumentos
+Route::get('Administradores/show','App\Http\Controllers\AdminController@showinstrus')->name('admins.showins');
