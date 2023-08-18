@@ -9,6 +9,8 @@ use DB;
 use App\Models\Instrumento;
 use App\Models\Agenda;
 use App\Models\Comentario;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProfesorController extends Controller
 {
@@ -17,7 +19,7 @@ class ProfesorController extends Controller
      */
     public function index()
     {
-        $codigo = 2; // El ID del profesor
+        $codigo = 34; // El ID del profesor
         $clase = DB::table('clases')
             ->join('profesores', 'profesores.idprofesor', '=', 'clases.idprofesor')
             ->join('instrumentos', 'instrumentos.idinstrumento', '=', 'clases.idinstrumento')
@@ -92,6 +94,7 @@ class ProfesorController extends Controller
      */
     public function perfilupdate(Request $request, string $id)
     {
+        $codigoprofe = $id;
         $profesor = Profesor::findOrFail($id);
     
         $profesor->nombre = $request->input('nombre');
@@ -117,8 +120,9 @@ class ProfesorController extends Controller
     
         $profesor->save();
     
-        return redirect()->route('profesores.perfill');
+        return redirect()->route('profesores.perfill', ['codigoprofe' => $codigoprofe]);
     }
+    
     
 
     
