@@ -24,7 +24,7 @@
             </tr>
             @forelse ($aprendizes as $apren)
                 <tr>
-                <td style="border-right:2px solid black; padding:10px">{{$apren->imagen}}</td>    
+                <td style="border-right:2px solid black; padding:10px">{{$apren->Imagen}}</td>    
                 <td style="border-right:2px solid black; padding:10px">{{$apren->nombre}}</td>
                 <td style="border-right:2px solid black; padding:10px">{{$apren->apellido}}</td>
                 <td style="border-right:2px solid black; padding:10px">{{$apren->email}}</td>

@@ -21,8 +21,8 @@
             <input type="text" name="nombre" id="" value="{{$profesor->nombre}}"><br><br>
             <label for="">Apellido</label>
             <input type="text" name="apellido" id="" value="{{$profesor->apellido}}"><br><br>
-            <label for="imagen">Imagen de perfil</label>
-            <input type="file" name="imagen" id=""><br><br>
+            <label for="Imagen">Imagen de perfil</label>
+            <input type="file" name="Imagen" id=""><br><br>
             <label for="">Email</label>
             <input type="text" name="email" id="" value="{{$profesor->email}}"><br><br>
             <label for="">Telefono</label>

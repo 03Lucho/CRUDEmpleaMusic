@@ -26,7 +26,7 @@
             </tr>
             @forelse ($profesor as $prof)
                 <tr>
-                <td style="border-right:2px solid black; padding:10px"><img src="{{asset('storage/perfil_profesores/' . $prof->imagen)}}" alt="foto de perfil" width="100"></td>
+                <td style="border-right:2px solid black; padding:10px"><img src="{{asset('storage/perfil_profesores/' . $prof->Imagen)}}" alt="foto de perfil" width="100"></td>
                 <td style="border-right:2px solid black; padding:10px">{{$prof->nombre}}</td>
                 <td style="border-right:2px solid black; padding:10px">{{$prof->apellido}}</td>
                 <td style="border-right:2px solid black; padding:10px">{{$prof->email}}</td>

@@ -39,7 +39,7 @@ class ProfesorController extends Controller
 
         //
         $profesor = DB::table('profesores')
-                                ->select('idprofesor','nombre','apellido','imagen','email','telefono','descripcion','aniosexperiencia','especialidad')
+                                ->select('idprofesor','nombre','apellido','Imagen','email','telefono','descripcion','aniosexperiencia','especialidad')
                                 ->where('idprofesor','=',$codigoprofe)
                                 ->get();
         return view ('profesores/perfil',['profesor'=>$profesor]);
@@ -68,9 +68,9 @@ class ProfesorController extends Controller
         $profesor->especialidad = $request->input('especialidad');
     
         // Procesar la imagen y almacenarla en el servidor
-        if ($request->hasFile('imagen')) {
-            $fileName = $request->file('imagen')->store('public/perfil_profesores');
-            $profesor->imagen = basename($fileName); // Asignar el nombre de la imagen
+        if ($request->hasFile('Imagen')) {
+            $fileName = $request->file('Imagen')->store('public/perfil_profesores');
+            $profesor->Imagen = basename($fileName); // Asignar el nombre de la imagen
         }
     
         $profesor->save(); // Guardar el objeto en la base de datos
@@ -105,17 +105,17 @@ class ProfesorController extends Controller
         $profesor->aniosexperiencia = $request->input('aniosexperiencia');
         $profesor->especialidad = $request->input('especialidad');
     
-        if ($request->hasFile('imagen')) {
-            $file = $request->file('imagen');
+        if ($request->hasFile('Imagen')) {
+            $file = $request->file('Imagen');
             $fileName = time() . '_' . $file->getClientOriginalName();
             $file->storeAs('public/perfil_profesores', $fileName);
     
             // Eliminar la imagen anterior solo si existe y no es la predeterminada
-            if ($profesor->imagen && $profesor->imagen !== 'imagen_predeterminada.jpg') {
-                Storage::delete('public/perfil_profesores/' . $profesor->imagen);
+            if ($profesor->Imagen && $profesor->Imagen !== 'imagen_predeterminada.jpg') {
+                Storage::delete('public/perfil_profesores/' . $profesor->Imagen);
             }
     
-            $profesor->imagen = $fileName;
+            $profesor->Imagen = $fileName;
         }
     
         $profesor->save();
@@ -225,7 +225,7 @@ class ProfesorController extends Controller
     {
         //
         $aprendizes = DB::table('aprendizes')
-        ->select('idaprendiz','nombre','apellido','imagen','email','telefono','descripcion')
+        ->select('idaprendiz','nombre','apellido','Imagen','email','telefono','descripcion')
         ->where('idaprendiz',$id)
         ->get();
 

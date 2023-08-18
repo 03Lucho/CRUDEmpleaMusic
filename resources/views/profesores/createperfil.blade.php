@@ -16,8 +16,8 @@
         <br>
 
         <!-- Agregar campo para la foto de perfil -->
-        <label for="imagen">Foto de Perfil:</label>
-        <input type="file" id="imagen" name="imagen" accept="image/*" required>
+        <label for="Imagen">Foto de Perfil:</label>
+        <input type="file" id="Imagen" name="Imagen" accept="image/*" required>
         <br>
 
         <!-- Resto de los campos del formulario -->
