@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Clase extends Model
 {
     use HasFactory;
-    protected $fillable = ['idclase','idprofesor','idinstrumento','nombre','descripcion','fecha','costo','horainicio','horafin','estado'];
+    protected $fillable = ['idclase','idprofesor','idcategoria','nombre','descripcion','fecha','costo','horainicio','horafin','estado'];
     protected $primaryKey = 'idclase' ;
 }

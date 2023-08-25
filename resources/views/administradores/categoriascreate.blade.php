@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Crear instrumento</title>
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
 </head>
 <body>
     <br>
@@ -13,7 +13,7 @@
     <br>
     <br>
     <div style="text-align: center; position-absolute: 50%">
-        <form action="{{route('instru.store')}}"method='POST'>
+        <form action="{{route('cat.store')}}"method='POST'>
             @csrf
             <br>
             <div>

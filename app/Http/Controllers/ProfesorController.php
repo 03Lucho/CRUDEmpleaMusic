@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Clase;
 use App\Models\Profesor;
 use DB;
-use App\Models\Instrumento;
+use App\Models\Categoria;
 use App\Models\Agenda;
 use App\Models\Comentario;
 use Illuminate\Support\Facades\Storage;
@@ -19,13 +19,13 @@ class ProfesorController extends Controller
      */
     public function index()
     {
-        $codigo = 34; // El ID del profesor
+        $codigo = 2; // El ID del profesor
         $clase = DB::table('clases')
             ->join('profesores', 'profesores.idprofesor', '=', 'clases.idprofesor')
-            ->join('instrumentos', 'instrumentos.idinstrumento', '=', 'clases.idinstrumento')
-            ->select('clases.idprofesor', 'clases.idclase', 'clases.nombre as nombre', 'clases.idinstrumento', 'instrumentos.nombre as nomins', 'clases.descripcion as descripcion', 'clases.fecha as fecha', 'clases.horainicio as horainicio', 'clases.horafin as horafin', 'clases.costo as costo')
+            ->join('categorias', 'categorias.idcategoria', '=', 'clases.idcategoria')
+            ->select('clases.idprofesor', 'clases.idclase', 'clases.nombre as nombre', 'clases.idcategoria', 'categorias.nombre as nomins', 'clases.descripcion as descripcion', 'clases.fecha as fecha', 'clases.horainicio as horainicio', 'clases.horafin as horafin','clases.cupos', 'clases.costo as costo')
             ->where('clases.idprofesor', '=', $codigo)
-            ->where('estado', '1')
+            ->where('clases.fecha', '>',now())
             ->orderby('clases.nombre', 'ASC')
             ->get();
     
@@ -39,7 +39,7 @@ class ProfesorController extends Controller
 
         //
         $profesor = DB::table('profesores')
-                                ->select('idprofesor','nombre','apellido','Imagen','email','telefono','descripcion','aniosexperiencia','especialidad')
+                                ->select('idprofesor','nombre','apellido','Imagen','email','telefono','descripcion','documento','aniosexperiencia','especialidad')
                                 ->where('idprofesor','=',$codigoprofe)
                                 ->get();
         return view ('profesores/perfil',['profesor'=>$profesor]);
@@ -64,6 +64,7 @@ class ProfesorController extends Controller
         $profesor->contrasena = $request->input('contrasena');
         $profesor->telefono = $request->input('telefono');
         $profesor->descripcion = $request->input('descripcion');
+        $profesor->documento = $request->input('documento');
         $profesor->aniosexperiencia = $request->input('aniosexperiencia');
         $profesor->especialidad = $request->input('especialidad');
     
@@ -102,6 +103,7 @@ class ProfesorController extends Controller
         $profesor->email = $request->input('email');
         $profesor->telefono = $request->input('telefono');
         $profesor->descripcion = $request->input('descripcion');
+        $profesor->documento = $request->input('documento');
         $profesor->aniosexperiencia = $request->input('aniosexperiencia');
         $profesor->especialidad = $request->input('especialidad');
     
@@ -133,8 +135,8 @@ class ProfesorController extends Controller
     public function create($idprofesor)
     {
         $codigo = $idprofesor;
-        $instrumentos = Instrumento::orderBy('nombre', 'ASC')->get();
-        return view('profesores.clasecreate', ['instrumentos' => $instrumentos, 'codigo' => $codigo]);
+        $categoria = Categoria::orderBy('nombre', 'ASC')->get();
+        return view('profesores.clasecreate', ['categoria' => $categoria, 'codigo' => $codigo]);
     }
     
 
@@ -147,7 +149,7 @@ class ProfesorController extends Controller
         //
         Clase::create([
             'idprofesor'=>$request['idprofesor'],
-            'idinstrumento'=>$request['instrument'],
+            'idcategoria'=>$request['instrument'],
             'nombre'=>$request['nombre'],
             'descripcion'=>$request['descripcion'],
             'costo'=>$request['costo'],
@@ -167,8 +169,8 @@ class ProfesorController extends Controller
     {
         //
         $clase = Clase::findOrFail($id);
-        $instrumento =Instrumento::orderby('nombre','ASC')->get();
-        return view('profesores/editarclase')->with('clase',$clase)->with('instrumento',$instrumento);
+        $categoria =Categoria::orderby('nombre','ASC')->get();
+        return view('profesores/editarclase')->with('clase',$clase)->with('categoria',$categoria);
     }
     //actualizar los datos de la edicion de una clase
 
@@ -189,7 +191,7 @@ class ProfesorController extends Controller
         $solicitudagenda = DB::table('solicitudagendas')
                     ->join('aprendizes','aprendizes.idaprendiz','=','solicitudagendas.idaprendiz')
                     ->join('clases','clases.idclase','=','solicitudagendas.idclase')
-                    ->select('solicitudagendas.idsolicitudagenda','aprendizes.idaprendiz','aprendizes.nombre as nomapren','clases.idclase','clases.idprofesor','clases.nombre as nomclas','solicitudagendas.fechaagendada','solicitudagendas.fechahora','solicitudagendas.descripcion')
+                    ->select('solicitudagendas.idsolicitudagenda','aprendizes.idaprendiz','aprendizes.nombre as nomapren','clases.idclase','clases.idprofesor','clases.nombre as nomclas','clases.cupos as numcups','solicitudagendas.fechaagendada','solicitudagendas.fechahora','solicitudagendas.descripcion')
                     ->where('clases.idprofesor','=',$codigo)
                     ->orderby('nomclas','ASC')
                     ->get();
@@ -225,7 +227,7 @@ class ProfesorController extends Controller
     {
         //
         $aprendizes = DB::table('aprendizes')
-        ->select('idaprendiz','nombre','apellido','Imagen','email','telefono','descripcion')
+        ->select('idaprendiz','nombre','apellido','Imagen','email','telefono','documento','descripcion')
         ->where('idaprendiz',$id)
         ->get();
 
@@ -245,7 +247,16 @@ class ProfesorController extends Controller
    
     DB::table('solicitudagendas')->where('idsolicitudagenda', $id6)->delete();
 
-    return redirect()->route('profesores.solicitudes');
+    $clase = Clase::find($id2);
+    if ($clase) {
+        $clase->cupos = $clase->cupos - 1;
+        $clase->save();
+    }
+    $codigo = Clase:: select('idprofesor')
+                    ->where('idclase','=',$id2)
+                    ->get();
+
+    return redirect()->route('profesores.solicitudes',['codigo'=>$codigo]);
     }
 
     //comentarios

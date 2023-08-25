@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Editar clase</title>
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
 </head>
 <body>
     <br>
@@ -16,13 +16,13 @@
         <form action="{{route('profesores.updateclass',$clase->idclase)}}"method='put'>
             @csrf
             <div>
-                <label for="">Seleccione el instrumento que va a esneñar</label>
-                <select name="idinstrumento" id="">
-                    @forelse ($instrumento as $instrum)
-                    @if ($clase->idinstrumento==$instrum->idinstrumento)
-                    <option value="{{$instrum->idinstrumento}}" selected>{{$instrum->nombre}}</option>
+                <label for="">Seleccione la categoria que va a esneñar</label>
+                <select name="idcategoria" id="">
+                    @forelse ($categoria as $instrum)
+                    @if ($clase->idcategoria==$instrum->idcategoria)
+                    <option value="{{$instrum->idcategoria}}" selected>{{$instrum->nombre}}</option>
                     @else 
-                    <option value="{{$instrum->idinstrumento}}">{{$instrum->nombre}}</option>
+                    <option value="{{$instrum->idcategoria}}">{{$instrum->nombre}}</option>
                     @endif
                     @empty
                     @endforelse
@@ -42,8 +42,6 @@
                 <label for="fecha">Fecha</label >
                 <input type="date" name="fecha" id="fecha" value="{{$clase->fecha}}"><br><br>
                 <label for="estado">Estado:</label>
-                <input type="radio" name="estado" id="estado" style="margin-left: 2%" value="1" checked> Activa
-                <input type="radio" name="estado" id="estado" style="margin-left: 2%" value="0"> Inactiva
             </div>
             <br>
             <button>Actualizar</button>

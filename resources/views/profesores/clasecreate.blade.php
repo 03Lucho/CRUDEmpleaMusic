@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Crear clase</title>
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
 </head>
 <body>
     <br>
@@ -16,11 +16,11 @@
         <form action="{{route('profesores.store')}}"method='POST'>
             @csrf
             <div>
-                <label for="idinstrumento">Seleccione el instrumento que va a esneñar</label>
+                <label for="idcategoria">Seleccione la categoria que va a esneñar</label>
                 <select name="instrument">
-                    @forelse ($instrumentos as $instrum)
+                    @forelse ($categoria as $instrum)
                     
-                    <option value="{{$instrum->idinstrumento}}" > {{$instrum->nombre}}</option>
+                    <option value="{{$instrum->idcategoria}}" > {{$instrum->nombre}}</option>
     
                     @empty
                     @endforelse

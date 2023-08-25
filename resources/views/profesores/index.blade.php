@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Index</title>
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
 </head>
 <body>
     <br>
@@ -21,10 +21,11 @@
         <table style="text-align: center; border:2px solid black">
             <tr>
                 <td style="border:2px solid black; padding:5px">Nombre</td>
-                <td style="border:2px solid black; padding:5px">Instrumento</td>
+                <td style="border:2px solid black; padding:5px">Categoria</td>
                 <td style="border:2px solid black; padding:5px">Descripcion</td>
                 <td style="border:2px solid black; padding:5px">Fecha</td>
                 <td style="border:2px solid black; padding:5px" colspan="2">Disponibilidad</td>
+                <td style="border:2px solid black; padding:5px">Cupos</td>
                 <td style="border:2px solid black; padding:5px">Costo</td>
                 <td style="text-align: center; border:2px solid black;padding:5px " colspan="2">Acciones</td>
             </tr>
@@ -36,14 +37,17 @@
                 <td style="border:2px solid black; padding:10px">{{$class->fecha}}</td>
                 <td style="border:2px solid black; padding:10px">{{$class->horainicio}}</td>
                 <td style="border:2px solid black; padding:10px">{{$class->horafin}}</td>
+                <td style="border:2px solid black; padding:10px">{{$class->cupos}}</td>
                 <td style="border:2px solid black; padding:10px">{{$class->costo}}</td>
     
                 <td style="padding:10px">
                 <a href="{{route('profesores.editarclases',$class->idclase)}}" ><button>Editar</button></a>
                 </td>
-                <td style="padding:10px">
+                @if ($class->cupos >0)
+                <td style="padding:10px"> 
                     <a href="{{route('profesores.showagen',$class->idclase)}}"><button>Ver agendas</button></a>
-                </td>
+                    </td>
+                @endif
                 </tr>
              @empty
             @endforelse

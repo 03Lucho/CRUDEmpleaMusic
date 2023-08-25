@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Instrumento extends Model
+class Categoria extends Model
 {
     use HasFactory;
-    protected $fillable = ['idinstrumento','nombre','tipo'];
-    protected $primaryKey = 'idinstrumento' ;
+    protected $fillable = ['idcategoria','nombre','tipo'];
+    protected $primaryKey = 'idcategoria' ;
 }

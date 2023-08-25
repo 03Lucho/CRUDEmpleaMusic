@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Index</title>
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
 </head>
 <body>
     <br>
     <br>
     <div style="text-align: center; ">
-    <a href={{route ('instru.create')}}><button >Crear Instrumento</button></a> <br><br>
-    <a href={{route ('admins.showins')}}><button >Ver Instrumentos</button></a> <br><br>
+    <a href={{route ('cat.create')}}><button >Crear Categoria</button></a> <br><br>
+    <a href={{route ('admins.showcats')}}><button >Ver categorias</button></a> <br><br>
     <br>
     <br>
     <h2>Comentarios</h2>

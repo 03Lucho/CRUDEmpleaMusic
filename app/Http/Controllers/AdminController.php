@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comentario;
-use App\Models\Instrumento;
+use App\Models\Categoria;
 use DB;
 
 class AdminController extends Controller
@@ -16,13 +16,13 @@ class AdminController extends Controller
         $comentario= Comentario ::all();
     return view ('administradores/index',['comentario'=>$comentario]);
     }
-    //Mostrar instrumentos
-    public function showinstrus()
+    //Mostrar categorias
+    public function showcates()
     {
         //
-        $instrumentos = Instrumento :: all();
+        $categorias = Categoria :: all();
 
-        return view ('administradores/showinstrus',['instrumentos'=>$instrumentos]);
+        return view ('administradores/showcates',['categorias'=>$categorias]);
     }
     //Eliminar comentarios
     public function destroycoment(string $id)
@@ -33,21 +33,21 @@ class AdminController extends Controller
     }
 
       /**
-     *retorna a la vista para crear un instrumento
+     *retorna a la vista para crear una categoria
      */
-    public function instrucreate()
+    public function catecreate()
     {
         //
-        return view ('administradores/instrumentoscreate');
+        return view ('administradores/categoriascreate');
     }
 
     /**
      * alamacena la clase en la base de datos
      */
-    public function intrustore(Request $request)
+    public function catestore(Request $request)
     {
         //
-        Instrumento::create([
+        Categoria::create([
             'nombre'=>$request['nombre'],
             'tipo'=>$request['tipo']
         ]);

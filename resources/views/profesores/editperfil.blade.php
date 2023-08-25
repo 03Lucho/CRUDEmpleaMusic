@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Editar perfil</title>
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
 </head>
 <body>
     <div style="text-align: center; position-absolute: 50%">
@@ -31,6 +31,8 @@
             <input type="text" name="descripcion" id="" style="height: 80px; width:500px" value="{{$profesor->descripcion}}"><br><br>
             <label for="">Años de experiencia</label>
             <input type="number" name="aniosexperiencia" id="" value="{{$profesor->aniosexperiencia}}"><br><br>
+            <label for="">Documento</label>
+            <input type="text" name="documento" id="" value="{{$profesor->documento}}"><br><br>
             <label for="">Especialidad</label>
             <input type="text" name="especialidad" id="" value="{{$profesor->especialidad}}"><br><br>
             <br><br>

@@ -57,8 +57,8 @@ Route::post('Profesores/agregarcomentario','App\Http\Controllers\ProfesorControl
 //administradores
 //index
 Route::get('Administradores/index','App\Http\Controllers\AdminController@indexcoment')->name('admins.index');
-//crear y almacenar instrumentos
-Route::get('instrumentos/crear','App\Http\Controllers\AdminController@instrucreate')->name('instru.create');
-Route::post('instrumentos/agregar','App\Http\Controllers\AdminController@intrustore')->name('instru.store');
-//mostrar instrumentos
-Route::get('Administradores/show','App\Http\Controllers\AdminController@showinstrus')->name('admins.showins');
+//crear y almacenar categorias
+Route::get('categorias/crear','App\Http\Controllers\AdminController@catecreate')->name('cat.create');
+Route::post('categorias/agregar','App\Http\Controllers\AdminController@catestore')->name('cat.store');
+//mostrar categorias
+Route::get('Administradores/show','App\Http\Controllers\AdminController@showcates')->name('admins.showcats');

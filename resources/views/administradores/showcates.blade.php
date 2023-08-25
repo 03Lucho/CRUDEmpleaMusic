@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Instrumentos creados</title>
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
 </head>
 <body>
     <br>
@@ -19,7 +19,7 @@
                 <td style="border:2px solid black; padding:5px">Nombre</td>
                 <td style="border:2px solid black; padding:5px">Tipo</td>
             </tr>
-            @forelse ($instrumentos as $instru)
+            @forelse ($categorias as $instru)
                 <tr>
                 <td style="border-right:2px solid black; padding:10px">{{$instru->nombre}}</td>
                 <td style="border-right:2px solid black; padding:10px">{{$instru->tipo}}</td>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Crea perfil Sesión Profesor</title>
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
 </head>
 <body style="text-align: center">
     <h1>Crea tu perfil de Docente</h1>
@@ -39,6 +39,10 @@
 
         <label for="descripcion">Descripción:</label>
         <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+        <br>
+
+        <label for="documento">Documento:</label>
+        <input type="text" name="documento" id="documento" required>
         <br>
 
         <label for="aniosexperiencia">Años de experiencia:</label>
