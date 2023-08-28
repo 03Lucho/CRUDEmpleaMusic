@@ -68,33 +68,32 @@ class AprendizController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Aprendiz $aprendiz)
+    public function update(Request $request, $idaprendiz)
     {
-        $data = $request->validate([
-            'nombre' => 'required|max:50',
-            'apellido' => 'required|max:50',
-            'email' => 'required|email|unique:aprendizes,email,' . $aprendiz->idaprendiz . ',idaprendiz',
-            'contrasena' => 'nullable|min:6|max:15',
-            'telefono' => 'required|max:25',
-            'descripcion' => 'required|max:700',
-            'Imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:328048',
-        ]);
+        $aprendiz = Aprendiz::findOrFail($idaprendiz);
+    
+        $aprendiz->nombre = $request->input('nombre');
+        $aprendiz->apellido = $request->input('apellido');
+        $aprendiz->email = $request->input('email');
+        $aprendiz->telefono = $request->input('telefono');
+        $aprendiz->descripcion = $request->input('descripcion');
     
         if ($request->has('contrasena') && !empty($request->contrasena)) {
-            $data['contrasena'] = bcrypt($request->contrasena);
+            $aprendiz->contrasena = bcrypt($request->contrasena);
         }
     
         if ($request->hasFile('Imagen')) {
             $file = $request->file('Imagen');
             $fileName = time() . '_' . $file->getClientOriginalName();
             $file->storeAs('public/fotos_aprendiz', $fileName);
-            $data['Imagen'] = $fileName;
+            $aprendiz->Imagen = $fileName;
         }
     
-        $aprendiz->update($data);
+        $aprendiz->save();
     
         return redirect()->route('aprendices.index')->with('success', 'Aprendiz actualizado exitosamente.');
     }
+    
     
     
     
