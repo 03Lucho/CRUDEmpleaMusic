@@ -16,11 +16,11 @@
         <form action="{{route('profesores.store')}}"method='POST'>
             @csrf
             <div>
-                <label for="idinstrumento">Seleccione el instrumento que va a esneñar</label>
-                <select name="instrument">
-                    @forelse ($instrumento as $instrum)
+                <label for="idcategoria">Seleccione el instrumento que va a esneñar</label>
+                <select name="categorias">
+                    @forelse ($categorias as $instrum)
                     
-                    <option value="{{$instrum->idinstrumento}}" > {{$instrum->nombre}}</option>
+                    <option value="{{$instrum->idcategoria}}" > {{$instrum->nombre}}</option>
     
                     @empty
                     @endforelse
