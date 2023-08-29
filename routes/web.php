@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('menu/menu');
+    return view('plantillainicio/inicio');
 });
 //index
 Route::get('Profesores/index','App\Http\Controllers\ProfesorController@index')->name('profesores.index');
