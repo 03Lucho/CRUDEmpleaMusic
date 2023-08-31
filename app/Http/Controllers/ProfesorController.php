@@ -17,9 +17,8 @@ class ProfesorController extends Controller
     /**
      * Mostrar las clases creadas por el profesor
      */
-    public function index()
+    public function index($codigo)
     {
-        $codigo = 2; // El ID del profesor
         $clase = DB::table('clases')
             ->join('profesores', 'profesores.idprofesor', '=', 'clases.idprofesor')
             ->join('categorias', 'categorias.idcategoria', '=', 'clases.idcategoria')
@@ -29,7 +28,7 @@ class ProfesorController extends Controller
             ->orderby('clases.nombre', 'ASC')
             ->get();
     
-        return view('profesores.index', ['clase' => $clase, 'codigo' => $codigo]);
+        return view('profesores/index', ['clase' => $clase, 'codigo' => $codigo]);
     }
     
 
@@ -152,6 +151,7 @@ class ProfesorController extends Controller
             'idcategoria'=>$request['instrument'],
             'nombre'=>$request['nombre'],
             'descripcion'=>$request['descripcion'],
+            'cupos'=>$request['cupos'],
             'costo'=>$request['costo'],
             'fecha'=>$request['fecha'],
             'horainicio'=>$request['horainicio'],

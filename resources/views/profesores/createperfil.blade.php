@@ -23,35 +23,35 @@
         <!-- Resto de los campos del formulario -->
         <label for="apellido">Apellido:</label>
         <input type="text" id="apellido" name="apellido" required>
-        <br>
+        <br><br>
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
-        <br>
+        <br><br>
 
         <label for="contrasena">Contraseña:</label>
         <input type="password" id="contrasena" name="contrasena" required>
-        <br>
+        <br><br>
 
         <label for="telefono">Teléfono:</label>
         <input type="tel" id="telefono" name="telefono" required>
-        <br>
+        <br><br>
 
         <label for="descripcion">Descripción:</label>
         <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
-        <br>
+        <br><br>
 
         <label for="documento">Documento:</label>
         <input type="text" name="documento" id="documento" required>
-        <br>
+        <br><br>
 
         <label for="aniosexperiencia">Años de experiencia:</label>
         <input type="number" name="aniosexperiencia" id="aniosexperiencia" required>
-        <br>
+        <br><br>
 
         <label for="especialidad">Especialidad:</label>
         <textarea id="especialidad" name="especialidad" rows="4" required></textarea>
-
+        <br><br>
         <button type="submit">Guardar Perfil</button>
     </form>
 </body>

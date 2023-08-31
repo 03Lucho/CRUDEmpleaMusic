@@ -35,6 +35,8 @@
                 <input type="text" name="descripcion" id="descripcion">
                 <label for="costo">Costo</label>
                 <input type="text" name="costo" id="costo">
+                <label for="cupos">Cupos</label>
+                <input type="number" name="cupos" id="cupos">
                 <label for="fecha">Fecha clase</label>
                 <input type="date" name="fecha" id="fecha">
                 <label for="disponibilidad">Disponibilidad</label>

@@ -27,12 +27,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#page-top">Iniciar Sesion</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#page-top">Registrate</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('redlogin')}}">Iniciar Sesion</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('profesores.createperfil')}}">Registro Profesor</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">Sobre Nostros</a></li>
                         <li class="nav-item"><a class="nav-link" href="#projects">Ofrecemos</a></li>
                         <li class="nav-item"><a class="nav-link" href="#politica">Nuestra Politica</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signup">Contactenos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('admins.index')}}">Administradores</a></li>
+                        
                     </ul>
                 </div>
             </div>

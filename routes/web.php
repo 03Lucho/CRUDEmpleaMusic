@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('plantillainicio/inicio');
 });
 //index
-Route::get('Profesores/index','App\Http\Controllers\ProfesorController@index')->name('profesores.index');
+Route::get('Profesores/index/{codigo}','App\Http\Controllers\ProfesorController@index')->name('profesores.index');
 //perfil
 Route::get('Profesores/crearperfil','App\Http\Controllers\ProfesorController@perfilcreate')->name('profesores.createperfil');
 Route::post('Profesores/agregarperfil','App\Http\Controllers\ProfesorController@perfilstore')->name('profesores.storeperfil');
@@ -62,3 +62,8 @@ Route::get('categorias/crear','App\Http\Controllers\AdminController@catecreate')
 Route::post('categorias/agregar','App\Http\Controllers\AdminController@catestore')->name('cat.store');
 //mostrar categorias
 Route::get('Administradores/show','App\Http\Controllers\AdminController@showcates')->name('admins.showcats');
+
+
+//iniciar sesion
+Route::get('/loginview','App\Http\Controllers\InicioSesionController@redireccion')->name('redlogin');
+Route::post('/login','App\Http\Controllers\InicioSesionController@LoginSesion')->name('login');
