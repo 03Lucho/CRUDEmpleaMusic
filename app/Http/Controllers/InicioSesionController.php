@@ -68,7 +68,7 @@ class InicioSesionController extends Controller
                     break;
     
                 case 'administrador':
-                    return view('holaadmin',['codigo' => $codigo]);
+                    return redirect()->route('admins.index');
                     break;
     
                 default:

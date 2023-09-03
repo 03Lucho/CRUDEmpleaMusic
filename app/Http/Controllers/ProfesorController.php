@@ -157,7 +157,8 @@ class ProfesorController extends Controller
             'horainicio'=>$request['horainicio'],
             'horafin'=>$request['horafin'],
         ]);
-        return redirect()->route('profesores.index');
+        $codigo = $request['idprofesor'];
+        return redirect()->route('profesores.index',['codigo' => $codigo]);
     }
 
     
@@ -191,7 +192,7 @@ class ProfesorController extends Controller
         $solicitudagenda = DB::table('solicitudagendas')
                     ->join('aprendizes','aprendizes.idaprendiz','=','solicitudagendas.idaprendiz')
                     ->join('clases','clases.idclase','=','solicitudagendas.idclase')
-                    ->select('solicitudagendas.idsolicitudagenda','aprendizes.idaprendiz','aprendizes.nombre as nomapren','clases.idclase','clases.idprofesor','clases.nombre as nomclas','clases.cupos as numcups','solicitudagendas.fechaagendada','solicitudagendas.fechahora','solicitudagendas.descripcion')
+                    ->select('solicitudagendas.idsolicitudagenda','aprendizes.idaprendiz','aprendizes.documento as docum','aprendizes.nombre as nomapren','clases.idclase','clases.idprofesor','clases.nombre as nomclas','clases.cupos as numcups','solicitudagendas.fechaagendada','solicitudagendas.fechahora','solicitudagendas.descripcion')
                     ->where('clases.idprofesor','=',$codigo)
                     ->orderby('nomclas','ASC')
                     ->get();

@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/plantilla.css" rel="stylesheet" />
       
     </head>
     <body id="page-top">
@@ -27,14 +27,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="{{route('redlogin')}}">Iniciar Sesion</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{route('profesores.createperfil')}}">Registro Profesor</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">Sobre Nostros</a></li>
                         <li class="nav-item"><a class="nav-link" href="#projects">Ofrecemos</a></li>
                         <li class="nav-item"><a class="nav-link" href="#politica">Nuestra Politica</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signup">Contactenos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{route('admins.index')}}">Administradores</a></li>
-                        
+                        <li class="nav-item"><a class="nav-link" href="{{route('redlogin')}}">Iniciar Sesion</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('profesores.createperfil')}}">Registro Profesor</a></li>
                     </ul>
                 </div>
             </div>
@@ -159,6 +157,7 @@
         <section class="signup-section" id="signup">
         <section class="contact-section bg-black">
             <div class="container px-4 px-lg-5">
+                <h2 class="text-white mb-4" style="text-align: center">Contactenos</h2>
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-md-4 mb-3 mb-md-0">
                         <div class="card py-4 h-100">
@@ -192,7 +191,7 @@
                     </div>
                 </div>
                 <div class="social d-flex justify-content-center">
-                    <a class="mx-2" href="#!"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a class="mx-2" href="https://wa.me/+573102288221" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
                     <a class="mx-2" href="https://web.facebook.com/yeisson.tamayo.5/?locale=es_ES&_rdc=1&_rdr" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a class="mx-2" href="https://www.instagram.com/c_creaacademia/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 </div>
