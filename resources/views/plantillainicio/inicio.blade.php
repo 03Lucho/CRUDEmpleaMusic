@@ -33,6 +33,7 @@
                         <li class="nav-item"><a class="nav-link" href="#signup">Contactenos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{route('redlogin')}}">Iniciar Sesion</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{route('profesores.createperfil')}}">Registro Profesor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('profesores.createcomentario')}}">Realizar comentario</a></li>
                     </ul>
                 </div>
             </div>

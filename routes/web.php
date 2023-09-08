@@ -32,11 +32,8 @@ Route::post('Profesores/agregar','App\Http\Controllers\ProfesorController@store'
 //editar y eliminar clase
 Route::get('Profesores/editclase/{id}','App\Http\Controllers\ProfesorController@editclass')->name('profesores.editarclases');
 Route::get('Profesores/actualizarclase/{id}','App\Http\Controllers\ProfesorController@updateclass')->name('profesores.updateclass');
-//solicitudes
-Route::get('Profesores/solicitudes/{codigo}','App\Http\Controllers\ProfesorController@solicitud')->name('profesores.solicitudes');
-//rechazar solicitud
-Route::get('Profesores/rechazar/{id}','App\Http\Controllers\ProfesorController@destroysoli')->name('profesores.rechazo');
-//aceptar solicitud
+
+//aceptar Agendar
 Route::post('Profesores/aceptar/{id1}/{id2}/{id3}/{id4}/{id5}/{id6}', 'App\Http\Controllers\ProfesorController@agendconfirmstore')->name('profesores.confirmstore');
 
 
@@ -48,7 +45,7 @@ Route::get('Profesores/mostraragendas/{id}','App\Http\Controllers\ProfesorContro
 Route::get('Profesores/verperfilagendado/{id}','App\Http\Controllers\ProfesorController@showperfapren')->name('profesores.perfaprendagend');
 
 //Crear comentario
-Route::get('Profesores/crearcomentario/{profecodigo}','App\Http\Controllers\ProfesorController@comentcreate')->name('profesores.createcomentario');
+Route::get('Profesores/crearcomentario','App\Http\Controllers\ProfesorController@comentcreate')->name('profesores.createcomentario');
 Route::post('Profesores/agregarcomentario','App\Http\Controllers\ProfesorController@comentstore')->name('profesores.comentarstore');
 
 

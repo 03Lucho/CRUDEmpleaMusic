@@ -13,16 +13,19 @@
         <form action="{{route('profesores.comentarstore')}}" method='POST'>
             @csrf
             <div class="form-group">
+
+                <label for="tipo">Tipo de comentario (Queja, Reclamo o Sugerencia)</label>
+                <select name="tipo" id="tipo">
+                    <option value="Queja">Queja</option>
+                    <option value="Reclamo">Reclamo</option>
+                    <option value="Sugerencia">Sugerencia</option>
+                </select>
+                <br>
+
                 <label for="descripcion">Digite su comentario</label>
                 <textarea name="descripcion" id="descripcion" cols="60" rows="8"></textarea>
                 <br>
-                
-                <input type="hidden" name="idprofesor" id="idprofesor" value="{{$codigo}}">
-                <br>
-                
-                <label for="tipo">Tipo de comentario (Queja, Reclamo o Sugerencia)</label>
-                <input type="text" name="tipo" id="tipo">
-                <br>
+
             </div><br>
             <button>Enviar</button>
         </form>

@@ -12,7 +12,6 @@
 <body>
     <div class="container">
         <a href="{{ route('profesores.create', $codigo) }}"><button>Crear clase</button></a>
-        <a href="{{ route('profesores.solicitudes', $codigo) }}"><button>Solicitudes</button></a>
         <a href="{{ route('profesores.perfill', $codigo) }}"><button>Perfil</button></a>
     </div>
 
@@ -42,9 +41,7 @@
         @endforelse
     </div>
     <br><br><br><br>
-    <div class="button-container">
-        <a href="{{ route('profesores.createcomentario', $codigo) }}"><button>Realizar comentario</button></a>
-    </div>
+    
 </body>
 
 </html>

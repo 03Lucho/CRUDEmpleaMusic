@@ -1,0 +1,54 @@
+/* Establece un fondo de pantalla */
+body {
+    background-color: #f2f2f2; /* Color de fondo */
+    margin: 0; /* Elimina el margen predeterminado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background-color: #ffffff; /* Color de fondo del contenedor */
+    padding: 20px; /* Espaciado interno del contenedor */
+    border-radius: 10px; /* Bordes redondeados del contenedor */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    width: 80%; /* Ancho del contenedor */
+    max-width: 800px; /* Ancho máximo del contenedor */
+    text-align: center; /* Centra el texto en el contenedor */
+}
+
+button {
+    background-color: #007BFF; /* Color de fondo del botón */
+    color: #fff; /* Color de texto del botón */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    border: none; /* Elimina el borde del botón */
+    border-radius: 5px; /* Bordes redondeados del botón */
+    cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 10px; /* Margen exterior del botón */
+}
+
+button:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el cursor */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 2px solid black;
+}
+
+th, td {
+    padding: 10px;
+}
+
+th {
+    background-color: #007BFF;
+    color: #fff;
+}

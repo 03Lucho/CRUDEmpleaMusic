@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Index</title>
-    <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/indexadmin.css') }}">
 </head>
 <body>
     <br>

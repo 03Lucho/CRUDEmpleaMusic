@@ -184,28 +184,7 @@ class ProfesorController extends Controller
        
     }
 
-    //aceptar o rechazar solicitudes
-    public function solicitud($codigo)
-    {
-
-        //
-        $solicitudagenda = DB::table('solicitudagendas')
-                    ->join('aprendizes','aprendizes.idaprendiz','=','solicitudagendas.idaprendiz')
-                    ->join('clases','clases.idclase','=','solicitudagendas.idclase')
-                    ->select('solicitudagendas.idsolicitudagenda','aprendizes.idaprendiz','aprendizes.documento as docum','aprendizes.nombre as nomapren','clases.idclase','clases.idprofesor','clases.nombre as nomclas','clases.cupos as numcups','solicitudagendas.fechaagendada','solicitudagendas.fechahora','solicitudagendas.descripcion')
-                    ->where('clases.idprofesor','=',$codigo)
-                    ->orderby('nomclas','ASC')
-                    ->get();
-
-    return view ('profesores/solicitudes',['solicitudagenda'=>$solicitudagenda]);
-    }
-    //eliminar la solicitud
-    public function destroysoli(string $id)
-    {
-        //
-        DB::table('solicitudagendas')->where('idsolicitudagenda', $id)->delete();
-        return redirect()->route('profesores.solicitudes');
-    }
+  
 
     //mostrar agendas
     public function showagends(string $id)
@@ -235,7 +214,7 @@ class ProfesorController extends Controller
         return view ('profesores/perfilesagendados',['aprendizes'=>$aprendizes]);
     }
 
-    //almacenar agenda confirmada
+    //almacenar agenda confirmada agendar clase
     public function agendconfirmstore(string $id1, string $id2, string $id3, string $id4, string $id5, string $id6)
     {   
     Agenda::create([
@@ -262,18 +241,16 @@ class ProfesorController extends Controller
 
     //comentarios
     //crear comentario
-    public function comentcreate($profecodigo)
+    public function comentcreate()
     {
         //
-        $codigo = $profecodigo;
-        return view ('profesores/comentario',[ 'codigo' => $codigo]);
+        return view ('profesores/comentario');
     }
     //almacenar comentario creado
     public function comentstore(Request $request)
     {
         //
         Comentario::create([
-            'idprofesor'=>$request['idprofesor'],
             'descripcion'=>$request['descripcion'],
             'fechahora'=>now(),
             'tipo'=>$request['tipo']
