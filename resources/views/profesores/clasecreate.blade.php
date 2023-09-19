@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/creaclase.css') }}">
 </head>
 <body>
+    @include('partials/cerrarsesion')
     <br>
     <br>
     <br>

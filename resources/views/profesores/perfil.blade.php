@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Perfil</title>
-    <link rel="stylesheet" href="{{ asset('css/perfil.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/perfilprofesor.css') }}">
+
 </head>
 <body>
+    @include('partials/cerrarsesion')
     <div class="container">
         <h1>Perfil</h1>
         <div class="profile-info">

@@ -9,7 +9,6 @@ body {
 .container {
     text-align: center;
     padding: 20px;
-    background-color: #3498db; /* Color de fondo */
 }
 
 .container a {
@@ -103,5 +102,5 @@ h2 {
 }
 
 .button-container button:hover {
-    background-color: #df4c08;}
+    background-color: #df4c08;
 }

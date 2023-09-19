@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Editar clase</title>
-    <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/editarclase.css') }}">
 </head>
 <body>
+    @include('partials/cerrarsesion')
     <div class="container">
         <form action="{{ route('profesores.updateclass', $clase->idclase) }}" method='PUT'>
             @csrf
@@ -32,18 +33,20 @@
                 <label for="descripcion">Descripcion</label>
                 <input type="text" name="descripcion" id="descripcion" value="{{ $clase->descripcion }}"><br><br>
             </div>
+
             <div class="form-group">
-                <label for="costo">Costo</label>
-                <input type="text" name="costo" id="costo" value="{{ $clase->costo }}"><br><br>
+                <label for="fecha">Fecha</label>
+                <input type="date" name="fecha" id="fecha" value="{{ $clase->fecha }}"><br><br>
             </div>
+
             <div class="form-group">
                 <label for="disponibilidad">Disponibilidad</label>
                 <input type="time" name="horainicio" id="horainicio" value="{{ $clase->horainicio }}">
                 <input type="time" name="horafin" id="horafin" value="{{ $clase->horafin }}"><br><br>
             </div>
             <div class="form-group">
-                <label for="fecha">Fecha</label>
-                <input type="date" name="fecha" id="fecha" value="{{ $clase->fecha }}"><br><br>
+                <label for="costo">Costo</label>
+                <input type="text" name="costo" id="costo" value="{{ $clase->costo }}"><br><br>
             </div>
             <br>
             <button>Actualizar</button>

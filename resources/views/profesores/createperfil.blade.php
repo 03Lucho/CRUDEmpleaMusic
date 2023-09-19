@@ -10,6 +10,7 @@
 </head>
 
 <body style="text-align: center">
+    @include('partials/cerrarsesion')
     <div class="container">
         <h1>Crea tu perfil de Docente</h1>
         <form action="{{ route('profesores.storeperfil') }}" method="POST" enctype="multipart/form-data">

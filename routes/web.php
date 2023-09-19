@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('plantillainicio/inicio');
-});
+})->name('plantillainicio');
+
+
 //index
 Route::get('Profesores/index/{codigo}','App\Http\Controllers\ProfesorController@index')->name('profesores.index');
 //perfil

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/editarperfil.css') }}">
 </head>
 <body>
+    @include('partials/cerrarsesion')
     <div class="container">
         <form action="{{route('profesores.perfilupdate',$profesor->idprofesor)}}" method='POST' enctype="multipart/form-data">
             @csrf

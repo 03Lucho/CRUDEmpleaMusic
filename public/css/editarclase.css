@@ -1,4 +1,4 @@
-/* Estilos generales */
+/* Establece un fondo de pantalla */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -17,25 +17,22 @@ body {
     box-shadow: 0 4px 8px rgba(175, 15, 15, 0.918);
 }
 
-/* Estilos para el formulario */
-form {
-    text-align: left;
+.form-group {
+    margin-bottom: 20px; /* Espaciado entre grupos de formularios */
 }
 
 label {
-    font-weight: bold;
-    display: block;
-    margin-top: 10px;
+    font-weight: bold; /* Texto en negrita */
 }
 
-input,
-select,
-button {
-    margin-top: 5px;
-    padding: 10px;
-    width: 100%;
+input[type="text"],
+input[type="time"],
+input[type="date"] {
+    width: 100%; /* Ancho completo para los campos de texto, tiempo y fecha */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados del campo */
+    font-size: 16px; /* Tamaño de fuente */
     border: 1px solid rgba(22, 36, 235, 0.459);
-    border-radius: 4px;
     background-color: white;
     box-shadow: 0 4px 8px rgba(5, 112, 5, 0.829);
 }
@@ -52,5 +49,4 @@ button {
 }
 
 button:hover {
-    background-color: #df4c08;
-}
+    background-color: #df4c08;}

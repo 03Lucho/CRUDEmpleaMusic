@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/comentario.css') }}">
 </head>
 <body>
+    @include('partials/cerrarsesion')
     <div class="container">
         <h1>Comentario</h1>
         <form action="{{route('profesores.comentarstore')}}" method='POST'>

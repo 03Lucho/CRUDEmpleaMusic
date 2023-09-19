@@ -5,33 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Prfiles agendados</title>
-    <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/perfilesagendados.css') }}">
 </head>
 <body>
+    @include('partials/cerrarsesion')
     <br>
-    <h1 style="text-align: center">Perfil Aprendiz</h1>
     <br>
-    <br>
-    <div style=" text-align: center">
-        <table style="text-align: center; border:2px solid black">
+    <div class="container">
+        <h1 >Perfil Aprendiz</h1>
+        <br>
+        <table>
             <tr>
-                <td style="border:2px solid black; padding:5px">Imagen</td>
-                <td style="border:2px solid black; padding:5px">Nombre</td>
-                <td style="border:2px solid black; padding:5px">Apellido</td>
-                <td style="border:2px solid black; padding:5px">Email</td>
-                <td style="border:2px solid black; padding:5px">Telefono</td>
-                <td style="border:2px solid black; padding:5px">Documento</td>
-                <td style="border:2px solid black; padding:5px">Descripcion</td>
+                <td>Imagen</td>
+                <td>Nombre</td>
+                <td>Apellido</td>
+                <td>Email</td>
+                <td>Telefono</td>
+                <td>Documento</td>
+                <td>Descripcion</td>
             </tr>
             @forelse ($aprendizes as $apren)
                 <tr>
-                <td style="border-right:2px solid black; padding:10px">{{$apren->Imagen}}</td>    
-                <td style="border-right:2px solid black; padding:10px">{{$apren->nombre}}</td>
-                <td style="border-right:2px solid black; padding:10px">{{$apren->apellido}}</td>
-                <td style="border-right:2px solid black; padding:10px">{{$apren->email}}</td>
-                <td style="border-right:2px solid black; padding:10px">{{$apren->telefono}}</td>
-                <td style="border-right:2px solid black; padding:10px">{{$apren->documento}}</td>
-                <td style="border-right:2px solid black; padding:10px">{{$apren->descripcion}}</td>
+                <td >{{$apren->Imagen}}</td>    
+                <td >{{$apren->nombre}}</td>
+                <td >{{$apren->apellido}}</td>
+                <td >{{$apren->email}}</td>
+                <td >{{$apren->telefono}}</td>
+                <td >{{$apren->documento}}</td>
+                <td >{{$apren->descripcion}}</td>
              @empty
             @endforelse
         </table>

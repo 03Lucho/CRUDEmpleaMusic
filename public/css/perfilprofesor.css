@@ -1,12 +1,15 @@
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    margin: 0px;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/fonsomusical.jpg");
+    background-size: cover;
+    background-position: center center;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/fonsomusical.jpg");
 }
 
 .container {

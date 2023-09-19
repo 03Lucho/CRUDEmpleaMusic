@@ -35,14 +35,24 @@ class ProfesorController extends Controller
     //mostrar el perfil del profesor
     public function perfill($codigoprofe)
     {
-
-        //
+        // Realiza la consulta y obtén una colección de resultados
         $profesor = DB::table('profesores')
-                                ->select('idprofesor','nombre','apellido','Imagen','email','telefono','descripcion','documento','aniosexperiencia','especialidad')
-                                ->where('idprofesor','=',$codigoprofe)
-                                ->get();
-        return view ('profesores/perfil',['profesor'=>$profesor]);
+            ->select('idprofesor', 'nombre', 'apellido', 'Imagen', 'email', 'telefono', 'descripcion', 'documento', 'aniosexperiencia', 'especialidad')
+            ->where('idprofesor', '=', $codigoprofe)
+            ->get();
+    
+        // Verifica si hay al menos un resultado en la colección antes de establecer la sesión
+        if ($profesor->isNotEmpty()) {
+            // Accede al primer elemento de la colección y obtén su propiedad 'nombre'
+            $nombreProfesor = $profesor->first()->nombre." ".$profesor->first()->apellido;
+    
+            // Establece la sesión con el nombre
+            session(['sesioncerrar' => $nombreProfesor]);
+        }
+    
+        return view('profesores/perfil', ['profesor' => $profesor]);
     }
+    
 
     //Crear el perfil del profesor
     public function perfilcreate()
@@ -224,8 +234,6 @@ class ProfesorController extends Controller
         'fechahora' => $id4,
         'descripcion' => $id5
     ]);
-   
-    DB::table('solicitudagendas')->where('idsolicitudagenda', $id6)->delete();
 
     $clase = Clase::find($id2);
     if ($clase) {
