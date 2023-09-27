@@ -250,13 +250,18 @@ class ProfesorController extends Controller
     //almacenar comentario creado
     public function comentstore(Request $request)
     {
-        //
-        Comentario::create([
-            'descripcion'=>$request['descripcion'],
-            'fechahora'=>now(),
-            'tipo'=>$request['tipo']
+        $validatedData = $request->validate([
+            'descripcion' => 'required',
+            'tipo' => 'required|in:Queja,Reclamo,Sugerencia',
         ]);
-        return redirect()->route('profesores.index');
+
+        Comentario::create([
+            'descripcion' => $validatedData['descripcion'],
+            'fechahora' => now(),
+            'tipo' => $validatedData['tipo'],
+        ]);
+
+    return redirect()->route('plantillainicio');
     }
 
 

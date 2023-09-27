@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<link rel="icon" type="image/x-icon" href="{{ asset('assets/logo.ico') }}" />
 <link href="{{ asset('css/register.css') }}" rel="stylesheet">
 
 @section('content')
