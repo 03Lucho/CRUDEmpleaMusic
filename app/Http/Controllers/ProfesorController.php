@@ -37,27 +37,18 @@ class ProfesorController extends Controller
     {
         // Realiza la consulta y obtén una colección de resultados
         $profesor = DB::table('profesores')
-            ->select('idprofesor', 'nombre', 'apellido', 'Imagen', 'email', 'telefono', 'descripcion', 'documento', 'aniosexperiencia', 'especialidad')
+            ->select('idprofesor', 'nombre', 'apellido', 'Imagen', 'telefono', 'descripcion', 'documento', 'aniosexperiencia', 'especialidad')
             ->where('idprofesor', '=', $codigoprofe)
             ->get();
-    
-        // Verifica si hay al menos un resultado en la colección antes de establecer la sesión
-        if ($profesor->isNotEmpty()) {
-            // Accede al primer elemento de la colección y obtén su propiedad 'nombre'
-            $nombreProfesor = $profesor->first()->nombre." ".$profesor->first()->apellido;
-    
-            // Establece la sesión con el nombre
-            session(['sesioncerrar' => $nombreProfesor]);
-        }
     
         return view('profesores/perfil', ['profesor' => $profesor]);
     }
     
 
     //Crear el perfil del profesor
-    public function perfilcreate()
+    public function perfilcreate($idusuario)
     {
-        return view('profesores/createperfil');
+        return view('profesores/createperfil',['idusuario' => $idusuario]);
     }
 
     /**
@@ -67,10 +58,9 @@ class ProfesorController extends Controller
     {
         $profesor = new Profesor(); // Crear una instancia de Profesor
     
+        $profesor->user_id = $request->user_id;
         $profesor->nombre = $request->input('nombre');
         $profesor->apellido = $request->input('apellido');
-        $profesor->email = $request->input('email');
-        $profesor->contrasena = $request->input('contrasena');
         $profesor->telefono = $request->input('telefono');
         $profesor->descripcion = $request->input('descripcion');
         $profesor->documento = $request->input('documento');
@@ -84,8 +74,12 @@ class ProfesorController extends Controller
         }
     
         $profesor->save(); // Guardar el objeto en la base de datos
+
+        $codigo = $profesor -> idprofesor;
+
+
     
-        return redirect()->route('profesores.index');
+        return redirect()->route('profesores.index',['codigo'=>$codigo]);
     }
     
     
@@ -109,7 +103,6 @@ class ProfesorController extends Controller
     
         $profesor->nombre = $request->input('nombre');
         $profesor->apellido = $request->input('apellido');
-        $profesor->email = $request->input('email');
         $profesor->telefono = $request->input('telefono');
         $profesor->descripcion = $request->input('descripcion');
         $profesor->documento = $request->input('documento');
@@ -176,21 +169,21 @@ class ProfesorController extends Controller
        /**
      * editar la clase
      */
-    public function editclass(string $id)
+    public function editclass(string $id, $codigo)
     {
         //
         $clase = Clase::findOrFail($id);
         $categoria =Categoria::orderby('nombre','ASC')->get();
-        return view('profesores/editarclase')->with('clase',$clase)->with('categoria',$categoria);
+        return view('profesores/editarclase')->with('clase',$clase)->with('categoria',$categoria)->with('codigo',$codigo);
     }
     //actualizar los datos de la edicion de una clase
 
-    public function updateclass(Request $request, string $id)
+    public function updateclass(Request $request, string $id, $codigo)
     {
         //
         $clase = Clase::findOrFail($id);
         $clase->update($request->all());
-        return redirect()->route('profesores.index');
+        return redirect()->route('profesores.index',['codigo' => $codigo]);
        
     }
 
@@ -217,7 +210,7 @@ class ProfesorController extends Controller
     {
         //
         $aprendizes = DB::table('aprendizes')
-        ->select('idaprendiz','nombre','apellido','Imagen','email','telefono','documento','descripcion')
+        ->select('idaprendiz','nombre','apellido','Imagen','telefono','documento','descripcion')
         ->where('idaprendiz',$id)
         ->get();
 
@@ -242,9 +235,9 @@ class ProfesorController extends Controller
     }
     $codigo = Clase:: select('idprofesor')
                     ->where('idclase','=',$id2)
-                    ->get();
+                    ->first();
 
-    return redirect()->route('profesores.solicitudes',['codigo'=>$codigo]);
+    return redirect()->route('profesores.index',['codigo'=>$codigo]);
     }
 
     //comentarios

@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Comentario</title>
-    <link rel="stylesheet" href="{{ asset('css/comentario.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/comentarios.css') }}">
 </head>
+<header>
+   
+</header>
 <body>
-    @include('partials/cerrarsesion')
+    @include('layouts/app')
     <div class="container">
         <h1>Comentario</h1>
         <form action="{{route('profesores.comentarstore')}}" method='POST'>
@@ -23,8 +26,8 @@
                 </select>
                 <br>
 
-                <label for="descripcion">Digite su comentario</label>
-                <textarea name="descripcion" id="descripcion" cols="60" rows="8"></textarea>
+                <label for="descripcion">Digite su comentario</label><br>
+                <textarea style="margin-right: 2px" name="descripcion" id="descripcion" cols="70" rows="8"></textarea>
                 <br>
 
             </div><br>
@@ -32,4 +35,5 @@
         </form>
     </div>
 </body>
+<footer></footer>
 </html>

@@ -1,0 +1,76 @@
+/* Estilos generales */
+body {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/fonsomusical.jpg");
+}
+
+.container {
+    width: auto;
+    max-width: 1000px;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #14c4c49a;
+    box-shadow: 0 4px 8px rgba(175, 15, 15, 0.918);
+}
+
+/* Estilos para el formulario */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+input[type="email"],
+input[type="password"],
+select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc; /* Cambiamos el color del borde */
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Cambiamos la intensidad de la sombra */
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 30px;
+    background-color: white;
+    background-size: 20px;
+}
+
+button {
+    padding: 10px 20px; /* Espaciado interno del botón */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 10px; /* Margen exterior del botón */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(73, 12, 131, 0.918);/* Cambiamos el color de la sombra */
+}
+
+button:hover {
+    background-color: #df4c08;
+}
+
+/* Estilos adicionales para mejorar la experiencia de usuario */
+input:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}

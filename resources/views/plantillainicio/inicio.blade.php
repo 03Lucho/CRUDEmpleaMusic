@@ -31,11 +31,22 @@
                         <li class="nav-item"><a class="nav-link" href="#projects">Ofrecemos</a></li>
                         <li class="nav-item"><a class="nav-link" href="#politica">Nuestra Politica</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signup">Contactenos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{route('redlogin')}}">Iniciar Sesion</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{route('profesores.createperfil')}}">Registro Profesor</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{route('profesores.createcomentario')}}">Realizar comentario</a></li>
                     </ul>
                 </div>
+                @if (Route::has('login'))
+                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                    @auth
+                    <a href="{{ url('/') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Inicio</a>
+                    @else
+                        <a href="{{ route('login') }}" style="margin-right: 2px; text-decoration:none" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Iniciar Sesion</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" style="text-decoration: none" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Registrar</a>
+                        @endif
+                    @endauth
+                </div>
+                @endif
             </div>
         </nav>
         <!-- Masthead-->
@@ -201,7 +212,7 @@
         </section>
         </section>
         <!-- Footer-->
-        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2023</div></footer>
+        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Derechos reservados &copy; C-Crea</div></footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

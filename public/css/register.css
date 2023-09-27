@@ -1,0 +1,84 @@
+/* Estilos generales */
+body {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/fonsomusical.jpg");
+}
+
+.row-mb-3{
+    width: 70%;
+    background-color: aqua;
+    align-items:center ;
+}
+
+.container {
+    width: auto;
+    max-width: 600px;
+    padding: 40px;
+    background-color: #14c4c49a;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(175, 15, 15, 0.918);
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px;
+}
+
+select {
+    width: 100px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(22, 36, 235, 0.459);
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(15, 175, 15, 0.918);
+    font-size: 16px; 
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+textarea {
+    width: auto;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(22, 36, 235, 0.459);
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(15, 175, 15, 0.918);
+}
+
+
+button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(73, 12, 131, 0.918);
+}
+
+button:hover {
+    background-color: #df4c08;
+}

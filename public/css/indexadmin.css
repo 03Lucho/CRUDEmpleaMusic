@@ -1,43 +1,45 @@
 /* Establece un fondo de pantalla */
 body {
-    background-color: #f2f2f2; /* Color de fondo */
-    margin: 0; /* Elimina el margen predeterminado */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/fonsomusical.jpg");
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    background-color: #ffffff; /* Color de fondo del contenedor */
-    padding: 20px; /* Espaciado interno del contenedor */
-    border-radius: 10px; /* Bordes redondeados del contenedor */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    width: 80%; /* Ancho del contenedor */
-    max-width: 800px; /* Ancho máximo del contenedor */
-    text-align: center; /* Centra el texto en el contenedor */
+    width: 80%; 
+    max-width: 800px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #14c4c49a;
+    box-shadow: 0 4px 8px rgba(175, 15, 15, 0.918);
 }
 
 button {
-    background-color: #007BFF; /* Color de fondo del botón */
-    color: #fff; /* Color de texto del botón */
     padding: 10px 20px; /* Espaciado interno del botón */
-    border: none; /* Elimina el borde del botón */
-    border-radius: 5px; /* Bordes redondeados del botón */
-    cursor: pointer; /* Cambia el cursor al pasar por encima del botón */
     font-size: 16px; /* Tamaño de fuente */
     margin: 10px; /* Margen exterior del botón */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(73, 12, 131, 0.918);
 }
 
 button:hover {
-    background-color: #0056b3; /* Cambia el color de fondo al pasar el cursor */
+    background-color: #df4c08;
 }
 
 table {
-    width: 100%;
     border-collapse: collapse;
+    width: auto;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.3); /* Fondo semi-transparente para la tabla */
     margin-top: 20px;
+    box-shadow: 0 0 10px rgba(3, 6, 189, 0.986);
 }
 
 table, th, td {
@@ -45,7 +47,11 @@ table, th, td {
 }
 
 th, td {
+    border: 2px solid #fff; /* Borde blanco */
     padding: 10px;
+    text-align: center;
+    background-color: #333; /* Color de fondo para las celdas */
+    color: #fff;
 }
 
 th {

@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Perfil</title>
-    <link rel="stylesheet" href="{{ asset('css/perfilprofesor.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/perfilprofesores.css') }}">
 
 </head>
 <body>
-    @include('partials/cerrarsesion')
+    @include('layouts/app')
     <div class="container">
         <h1>Perfil</h1>
         <div class="profile-info">
@@ -18,7 +18,6 @@
                     <img src="{{asset('storage/perfil_profesores/' . $prof->Imagen)}}" alt="foto de perfil" width="100">
                     <p><strong>Nombre:</strong> {{$prof->nombre}}</p>
                     <p><strong>Apellido:</strong> {{$prof->apellido}}</p>
-                    <p><strong>Email:</strong> {{$prof->email}}</p>
                     <p><strong>Telefono:</strong> {{$prof->telefono}}</p>
                     <p><strong>Documento:</strong> {{$prof->documento}}</p>
                     <p><strong>Descripcion:</strong> {{$prof->descripcion}}</p>

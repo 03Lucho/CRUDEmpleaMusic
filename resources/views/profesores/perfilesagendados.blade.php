@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Prfiles agendados</title>
-    <link rel="stylesheet" href="{{ asset('css/perfilesagendados.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/perfilesagenda.css') }}">
 </head>
 <body>
-    @include('partials/cerrarsesion')
+    @include('layouts/app')
     <br>
     <br>
     <div class="container">
@@ -19,20 +19,18 @@
                 <td>Imagen</td>
                 <td>Nombre</td>
                 <td>Apellido</td>
-                <td>Email</td>
                 <td>Telefono</td>
                 <td>Documento</td>
-                <td>Descripcion</td>
+                <td colspan="4">Descripcion</td>
             </tr>
             @forelse ($aprendizes as $apren)
                 <tr>
                 <td >{{$apren->Imagen}}</td>    
                 <td >{{$apren->nombre}}</td>
                 <td >{{$apren->apellido}}</td>
-                <td >{{$apren->email}}</td>
                 <td >{{$apren->telefono}}</td>
                 <td >{{$apren->documento}}</td>
-                <td >{{$apren->descripcion}}</td>
+                <td colspan="4">{{$apren->descripcion}}</td>
              @empty
             @endforelse
         </table>

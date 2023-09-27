@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Instrumentos creados</title>
-    <link rel="stylesheet" href="{{ asset('css/styles1.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/showcates.css') }}">
 </head>
 <body>
-    <br>
-    <br>
-    <div style="text-align: center; ">
-    <br>
-    <br>
-    <div style=" text-align: center">
+    @include('layouts/app')
+    <h2 style="text-align: center; color:white">Categorias</h2>
+    <div>
+    <div class="table-container">
+        
         <table style="text-align: center; border:2px solid black">
             <tr>
                 <td style="border:2px solid black; padding:5px">Nombre</td>
@@ -27,6 +26,7 @@
              @empty
             @endforelse
         </table>
+    </div>
     </div>
 </body>
 </html>

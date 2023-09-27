@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    @include('partials/cerrarsesion')
+    @include('layouts/app')
     <div class="container">
         <a href="{{ route('profesores.create', $codigo) }}"><button>Crear clase</button></a>
         <a href="{{ route('profesores.perfill', $codigo) }}"><button>Perfil</button></a>
@@ -32,9 +32,9 @@
                 </div>
                 
                 <div class="class-actions">
-                    <a href="{{ route('profesores.editarclases', $class->idclase) }}"><button>Editar</button></a>
+                    <a href="{{ route('profesores.editarclases', ['id' => $class->idclase, 'codigo' => $codigo]) }}"><button>Editar</button></a>
                     @if ($class->cupos > 0)
-                        <a href="{{ route('profesores.showagen', $class->idclase) }}"><button>Ver agendas</button></a>
+                        <a href="{{ route('profesores.showagen', ['id' => $class->idclase]) }}"><button>Ver agendas</button></a>
                     @endif
                 </div>
             </div>

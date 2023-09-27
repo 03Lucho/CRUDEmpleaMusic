@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Editar perfil</title>
-    <link rel="stylesheet" href="{{ asset('css/editarperfil.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/editperfil.css') }}">
 </head>
 <body>
-    @include('partials/cerrarsesion')
+    @include('layouts/app')
     <div class="container">
         <form action="{{route('profesores.perfilupdate',$profesor->idprofesor)}}" method='POST' enctype="multipart/form-data">
             @csrf
@@ -19,8 +19,6 @@
                 <input type="text" name="apellido" value="{{$profesor->apellido}}"><br><br>
                 <label for="Imagen">Imagen de perfil</label>
                 <input type="file" name="Imagen"><br><br>
-                <label for="">Email</label>
-                <input type="text" name="email" value="{{$profesor->email}}"><br><br>
                 <label for="">Telefono</label>
                 <input type="number" name="telefono" value="{{$profesor->telefono}}"><br><br>
                 <label for="">Descripcion</label>

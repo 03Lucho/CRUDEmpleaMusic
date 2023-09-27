@@ -7,16 +7,19 @@
     <title>Index</title>
     <link rel="stylesheet" href="{{ asset('css/indexadmin.css') }}">
 </head>
-<body>
+<body>  
+    @include('layouts/app')
     <br>
     <br>
     <div style="text-align: center; ">
     <a href={{route ('cat.create')}}><button >Crear Categoria</button></a> <br><br>
     <a href={{route ('admins.showcats')}}><button >Ver categorias</button></a> <br><br>
+    </div>
     <br>
     <br>
-    <h2>Comentarios</h2>
-    <div style=" text-align: center">
+    <div class="container" style=" text-align: center">
+        <h2 style="color: white">Comentarios</h2>
+
         <table style="text-align: center; border:2px solid black">
             <tr>
                 <td style="border:2px solid black; padding:5px">Descripcion</td>

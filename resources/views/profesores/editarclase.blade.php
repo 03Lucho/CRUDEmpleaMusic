@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Editar clase</title>
-    <link rel="stylesheet" href="{{ asset('css/editarclase.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/editclase.css') }}">
 </head>
 <body>
-    @include('partials/cerrarsesion')
+    @include('layouts/app')
     <div class="container">
-        <form action="{{ route('profesores.updateclass', $clase->idclase) }}" method='PUT'>
+        <form action="{{ route('profesores.updateclass', ['id' => $clase->idclase, 'codigo' => $codigo] ) }}" method='PUT'>
             @csrf
             <div class="form-group">
                 <label for="idcategoria">Seleccione la categoria que va a enseñar</label>
