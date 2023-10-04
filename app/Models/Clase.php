@@ -8,6 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Clase extends Model
 {
     use HasFactory;
+<<<<<<< HEAD
     protected $fillable = ['idclase','idprofesor','idcategoria','nombre','descripcion','fecha','costo','horainicio','horafin','cupos','estado'];
     protected $primaryKey = 'idclase' ;
+=======
+    protected $table = 'clases'; 
+    protected $fillable = ['idclase','idprofesor','idcategoria','nombre','descripcion','fecha','costo','horainicio','horafin','cupos'];
+    protected $primaryKey = 'idclase' ;
+
+    public function solicitudagendas()
+    {
+        return $this->hasMany(SolicitudAgenda::class, 'idclase', 'idclase');
+    }
+    public function categorias()
+    {
+    return $this->belongsTo(Categoria::class, 'idcategoria','idcategoria');
+    }
+>>>>>>> origin/esteban
 }

@@ -13,6 +13,13 @@ class Kernel extends HttpKernel
      *
      * @var array<int, class-string|string>
      */
+<<<<<<< HEAD
+=======
+    protected $routeMiddleware = [
+        // Otras definiciones de middleware...
+        'rol' => \App\Http\Middleware\VerificarRol::class,
+    ];
+>>>>>>> origin/esteban
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
@@ -23,10 +30,13 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
 
+<<<<<<< HEAD
     protected $routeMiddleware = [
         // Otros middleware
         'checkRole' => \App\Http\Middleware\CheckRole::class,
     ];
+=======
+>>>>>>> origin/esteban
     /**
      * The application's route middleware groups.
      *
@@ -58,6 +68,10 @@ class Kernel extends HttpKernel
      */
     protected $middlewareAliases = [
         'auth' => \App\Http\Middleware\Authenticate::class,
+<<<<<<< HEAD
+=======
+        'auth.admin' => \App\Http\Middleware\AdminAuth::class,
+>>>>>>> origin/esteban
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,

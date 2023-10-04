@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+<<<<<<< HEAD
+=======
+use App\Models\Usuario; 
+
+>>>>>>> origin/esteban
 class HomeController extends Controller
 {
     /**

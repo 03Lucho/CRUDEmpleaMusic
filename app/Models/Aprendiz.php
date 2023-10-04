@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Aprendiz extends Model
 {
     use HasFactory;
+<<<<<<< HEAD
     protected $fillable = ['idaprendiz','nombre','apellido','Imagen','telefono','descripcion'];
     protected $primaryKey = 'idaprendiz';
+=======
+
+    protected $table = 'aprendizes'; 
+    protected $primaryKey = 'idaprendiz'; 
+    protected $fillable = ['nombre', 'apellido', 'email', 'contrasena', 'telefono', 'descripcion', 'Imagen'];
+>>>>>>> origin/esteban
 }

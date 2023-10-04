@@ -5,12 +5,18 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+<<<<<<< HEAD
 use App\Models\Role; 
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
+=======
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+>>>>>>> origin/esteban
 
 class RegisterController extends Controller
 {
@@ -67,12 +73,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+<<<<<<< HEAD
         // Crear un nuevo usuario
         $user = User::create([
+=======
+        return User::create([
+>>>>>>> origin/esteban
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+<<<<<<< HEAD
 
         // Obtener el ID del rol seleccionado por el usuario
         $role = Role::where('nombre', $data['role'])->first();
@@ -98,3 +109,7 @@ class RegisterController extends Controller
     }
 }
 
+=======
+    }
+}
+>>>>>>> origin/esteban

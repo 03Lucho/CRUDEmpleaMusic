@@ -6,14 +6,22 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>C-Crea</title>
+<<<<<<< HEAD
         <link rel="icon" type="image/x-icon" href="{{ asset('assets/logo.ico') }}" />
+=======
+        <link rel="icon" type="image/x-icon" href="assets/clavesol.ico" />
+>>>>>>> origin/esteban
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
+<<<<<<< HEAD
         <link href="css/plantilla.css" rel="stylesheet" />
+=======
+        <link href="css/styles.css" rel="stylesheet" />
+>>>>>>> origin/esteban
       
     </head>
     <body id="page-top">
@@ -27,10 +35,16 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
+<<<<<<< HEAD
+=======
+                        <li class="nav-item"><a class="nav-link" href="">Iniciar Sesion</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">Registrate</a></li>
+>>>>>>> origin/esteban
                         <li class="nav-item"><a class="nav-link" href="#about">Sobre Nostros</a></li>
                         <li class="nav-item"><a class="nav-link" href="#projects">Ofrecemos</a></li>
                         <li class="nav-item"><a class="nav-link" href="#politica">Nuestra Politica</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signup">Contactenos</a></li>
+<<<<<<< HEAD
                         <li class="nav-item"><a class="nav-link" href="{{route('profesores.createcomentario')}}">Realizar comentario</a></li>
                     </ul>
                 </div>
@@ -47,6 +61,10 @@
                     @endauth
                 </div>
                 @endif
+=======
+                    </ul>
+                </div>
+>>>>>>> origin/esteban
             </div>
         </nav>
         <!-- Masthead-->
@@ -74,7 +92,11 @@
                         </p>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <img class="img-fluid" src="assets/img/empresa.png" alt="..." />
+=======
+                <img class="img-fluid" src="assets/img/ipad.png" alt="..." />
+>>>>>>> origin/esteban
             </div>
         </section>
         <!-- Projects-->
@@ -83,7 +105,11 @@
             <div class="container px-4 px-lg-5">
                 <!-- Featured Project Row-->
                 <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+<<<<<<< HEAD
                     <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/principal.jpg" alt="..." /></div>
+=======
+                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/bg-masthead.jpg" alt="..." /></div>
+>>>>>>> origin/esteban
                     <div class="col-xl-4 col-lg-5">
                         <div class="featured-text text-center text-lg-left">
                             <h4>C-Crea</h4>
@@ -93,7 +119,11 @@
                 </div>
                 <!-- Project One Row-->
                 <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+<<<<<<< HEAD
                     <div class="col-lg-6"><img class="img-fluid" src="assets/img/escuela_de_musica.jpg" alt="..." /></div>
+=======
+                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-01.jpg" alt="..." /></div>
+>>>>>>> origin/esteban
                     <div class="col-lg-6">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
@@ -107,7 +137,11 @@
                 </div>
                 <!-- Project Two Row-->
                 <div class="row gx-0 justify-content-center">
+<<<<<<< HEAD
                     <div class="col-lg-6"><img class="img-fluid" src="assets/img/yoga.jpg" alt="..." /></div>
+=======
+                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-02.jpg" alt="..." /></div>
+>>>>>>> origin/esteban
                     <div class="col-lg-6 order-lg-first">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
@@ -121,7 +155,11 @@
                 </div>
                  <!-- Project three Row-->
                  <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+<<<<<<< HEAD
                     <div class="col-lg-6"><img class="img-fluid" src="assets/img/artes.jpg" alt="..." /></div>
+=======
+                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-01.jpg" alt="..." /></div>
+>>>>>>> origin/esteban
                     <div class="col-lg-6">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
@@ -135,7 +173,11 @@
                 </div>
                  <!-- Project four Row-->
                  <div class="row gx-0 justify-content-center">
+<<<<<<< HEAD
                     <div class="col-lg-6"><img class="img-fluid" src="assets/img/danza_aerea.jpg" alt="..." /></div>
+=======
+                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-02.jpg" alt="..." /></div>
+>>>>>>> origin/esteban
                     <div class="col-lg-6 order-lg-first">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
@@ -161,7 +203,11 @@
                         </p>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <img class="img-fluid" src="assets/img/empresa.png" alt="..." />
+=======
+                <img class="img-fluid" src="assets/img/ipad.png" alt="..." />
+>>>>>>> origin/esteban
             </div>
         </section>
         <!-- Signup-->
@@ -169,7 +215,10 @@
         <section class="signup-section" id="signup">
         <section class="contact-section bg-black">
             <div class="container px-4 px-lg-5">
+<<<<<<< HEAD
                 <h2 class="text-white mb-4" style="text-align: center">Contactenos</h2>
+=======
+>>>>>>> origin/esteban
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-md-4 mb-3 mb-md-0">
                         <div class="card py-4 h-100">
@@ -177,7 +226,11 @@
                                 <i class="fas fa-map-marked-alt text-primary mb-2"></i>
                                 <h4 class="text-uppercase m-0">Direccion</h4>
                                 <hr class="my-4 mx-auto" />
+<<<<<<< HEAD
                                 <div class="small text-black-50">Tunja-Boyaca calle 15#10-62</div>
+=======
+                                <div class="small text-black-50">4923 Market Street, Orlando FL</div>
+>>>>>>> origin/esteban
                             </div>
                         </div>
                     </div>
@@ -197,22 +250,36 @@
                                 <i class="fas fa-mobile-alt text-primary mb-2"></i>
                                 <h4 class="text-uppercase m-0">Telefono</h4>
                                 <hr class="my-4 mx-auto" />
+<<<<<<< HEAD
                                 <div class="small text-black-50">+57 310-228-82-21</div>
+=======
+                                <div class="small text-black-50">+1 (555) 902-8832</div>
+>>>>>>> origin/esteban
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="social d-flex justify-content-center">
+<<<<<<< HEAD
                     <a class="mx-2" href="https://wa.me/+573102288221" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
                     <a class="mx-2" href="https://web.facebook.com/yeisson.tamayo.5/?locale=es_ES&_rdc=1&_rdr" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a class="mx-2" href="https://www.instagram.com/c_creaacademia/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+=======
+                    <a class="mx-2" href="#!"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a class="mx-2" href="#!"><i class="fa-brands fa-instagram"></i></a>
+>>>>>>> origin/esteban
                 </div>
                 <br>
             </div>
         </section>
         </section>
         <!-- Footer-->
+<<<<<<< HEAD
         <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Derechos reservados &copy; C-Crea</div></footer>
+=======
+        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2023</div></footer>
+>>>>>>> origin/esteban
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
@@ -223,4 +290,8 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> origin/esteban

@@ -42,6 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+<<<<<<< HEAD
 
     public function roles()
     {
@@ -52,4 +53,6 @@ class User extends Authenticatable
     {
         return $this->roles->contains('nombre', $role);
     }
+=======
+>>>>>>> origin/esteban
 }

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Index</title>
+<<<<<<< HEAD
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/logo.ico') }}" />
     <link rel="stylesheet" href="{{ asset('css/indexadmin.css') }}">
 </head>
@@ -21,6 +22,19 @@
     <div class="container" style=" text-align: center">
         <h2 style="color: white">Comentarios</h2>
 
+=======
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+</head>
+<body>
+    <br>
+    <br>
+    <div style="text-align: center; ">
+    <a href={{route ('instru.create')}}><button >Crear Instrumento</button></a> <br><br>
+    <br>
+    <br>
+    <h2>Comentarios</h2>
+    <div style=" text-align: center">
+>>>>>>> origin/esteban
         <table style="text-align: center; border:2px solid black">
             <tr>
                 <td style="border:2px solid black; padding:5px">Descripcion</td>
@@ -37,6 +51,10 @@
             @endforelse
         </table>
     </div>
+<<<<<<< HEAD
+=======
+    <a href="{{ route('menu') }}" class="btn">Volver</a>
+>>>>>>> origin/esteban
 </body>
 </html>
 
