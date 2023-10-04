@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Profesor;
+use App\Models\Aprendiz;
+
 
 class LoginController extends Controller
 {
@@ -36,7 +38,14 @@ class LoginController extends Controller
             // Verifica si el usuario tiene el rol seleccionado
             if (Auth::user()->hasRole($request->role)) {
                 if (Auth::user()->hasRole('aprendiz')) {
-                    return redirect()->intended($this->redirectTo);
+                    //APRENDIZ//
+                    $id = Auth::user()->id;
+                    $Aprendiz= Aprendiz::select('idaprendiz')
+                    ->where('user_id', '=', $id)
+                    ->first();
+                    $aprendiz = $Aprendiz ->idaprendiz;
+                    return redirect()->route('aprendices.show',['aprendiz' => $aprendiz]);
+                    //APRENDIZ//
                 } elseif (Auth::user()->hasRole('profesor')) {
                     $id = Auth::user()->id;
                     $profesor= Profesor::select('idprofesor')

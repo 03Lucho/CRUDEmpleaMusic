@@ -86,7 +86,8 @@ class RegisterController extends Controller
     protected function registered(Request $request, $user)
     {
         if ($user->hasRole('aprendiz')) {
-            return view('bienvenida'); // Cambia 'ruta_para_aprendices' por la ruta deseada para los aprendices.
+            $idusuario= $user->id;
+            return redirect()->route('aprendices.create',['idusuario'=>$idusuario]);// Cambia 'ruta_para_aprendices' por la ruta deseada para los aprendices.
         } elseif ($user->hasRole('profesor')) {
             $idusuario= $user->id;
             return redirect()->route('profesores.createperfil',['idusuario'=>$idusuario]); // Cambia 'ruta_para_profesores' por la ruta deseada para los profesores.
