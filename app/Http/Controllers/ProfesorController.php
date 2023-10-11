@@ -218,26 +218,27 @@ class ProfesorController extends Controller
     }
 
     //almacenar agenda confirmada agendar clase
-    public function agendconfirmstore(string $id1, string $id2, string $id3, string $id4, string $id5, string $id6)
+    public function agendconfirmstore(Request $request,string $id)
     {   
-    Agenda::create([
-        'idaprendiz' => $id1,
-        'idclase' => $id2,
-        'fechaagendada' => $id3,
-        'fechahora' => $id4,
-        'descripcion' => $id5
-    ]);
+        $aprendiz = $request->input('idaprendiz');
+        Agenda::create([
+            'idaprendiz' => $request->input('idaprendiz'), 
+            'idclase' => $id, 
+            'fechaagendada' => now(), 
+            'fechahora' => $request->input('fechahora'), 
+            'descripcion' => $request->input('descripcion')
+        ]);
 
-    $clase = Clase::find($id2);
+    $clase = Clase::find($id);
     if ($clase) {
         $clase->cupos = $clase->cupos - 1;
         $clase->save();
     }
     $codigo = Clase:: select('idprofesor')
-                    ->where('idclase','=',$id2)
+                    ->where('idclase','=',$id)
                     ->first();
 
-    return redirect()->route('profesores.index',['codigo'=>$codigo]);
+        return redirect()->route('aprendices.show',['aprendiz'=>$aprendiz])->with('success', 'Agenda enviada exitosamente.');
     }
 
     //comentarios

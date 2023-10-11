@@ -17,7 +17,7 @@
         <a href="{{ route('profesores.perfill', $codigo) }}"><button>Perfil</button></a>
     </div>
 
-    <h2>Mis clases creadas</h2>
+    <h2 style="color: white">Mis clases creadas</h2>
     <div class="centered-container">
         @forelse ($clase as $class)
             <div class="class-item">

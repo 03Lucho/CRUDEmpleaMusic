@@ -33,9 +33,7 @@ Route::middleware(['auth', 'checkRole:profesor'])->group(function () {
     //editar y actualizar clase
     Route::get('Profesores/editclase/{id}/{codigo}','App\Http\Controllers\ProfesorController@editclass')->name('profesores.editarclases');
     Route::get('Profesores/actualizarclase/{id}/{codigo}','App\Http\Controllers\ProfesorController@updateclass')->name('profesores.updateclass');
-    //aceptar Agenda
-    Route::post('Profesores/aceptar/{id1}/{id2}/{id3}/{id4}/{id5}/{id6}', 'App\Http\Controllers\ProfesorController@agendconfirmstore')->name('profesores.confirmstore');
-    //mostrar agendas
+   //mostrar agendas
     Route::get('Profesores/mostraragendas/{id}','App\Http\Controllers\ProfesorController@showagends')->name('profesores.showagen');
     //mostrar perfiles
     Route::get('Profesores/verperfilagendado/{id}','App\Http\Controllers\ProfesorController@showperfapren')->name('profesores.perfaprendagend');
@@ -61,8 +59,17 @@ Route::middleware(['auth', 'checkRole:admin'])->group(function () {
 
 //aprendiz
 Route::middleware(['auth', 'checkRole:aprendiz'])->group(function () {
+    Route::get('/aprendices','App\Http\Controllers\AprendizController@index')->name('aprendices.index');
+    Route::post('/aprendices','App\Http\Controllers\AprendizController@store')->name('aprendices.store');
+    Route::get('/aprendices/{aprendiz}/edit','App\Http\Controllers\AprendizController@edit')->name('aprendices.edit');
+    Route::put('/aprendices/{aprendiz}','App\Http\Controllers\AprendizController@update')->name('aprendices.update');
+    Route::get('/aprendices/show/{aprendiz}','App\Http\Controllers\AprendizController@show')->name('aprendices.show');
+    Route::get('/agendar/clase/{idclase}','App\Http\Controllers\AprendizController@AgendarClase')->name('agendar.clase');
+    Route::post('/aprendices/agendar/store/{idclase}','App\Http\Controllers\AprendizController@storeAgenda')->name('agendar.store');
+    Route::get('/aprendices/create','App\Http\Controllers\AprendizController@create')->name('aprendices.create');
+     //aceptar Agenda
+     Route::post('Profesores/aceptar/{idclase}', 'App\Http\Controllers\ProfesorController@agendconfirmstore')->name('profesores.confirmstore');
     
-
 });
 
 //inicio sesion con auth
