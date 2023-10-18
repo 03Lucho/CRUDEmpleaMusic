@@ -1,0 +1,106 @@
+/* principal.css */
+body {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/fonsomusical.jpg");
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+.container a {
+    text-decoration: none;
+    margin: 10px;
+}
+
+.container button {
+    background-color: #27ae60; /* Color del botón */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(14, 2, 138, 0.918);
+}
+
+.container button:hover {
+    background-color: #df4c08;
+}
+
+h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.centered-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.class-item {
+    padding: 20px;
+    width: 300px; /* Ancho de cada elemento */
+    border-radius: 8px;
+    background-color: #14c4c49a;
+    box-shadow: 0 4px 8px rgba(175, 15, 15, 0.918);
+}
+
+.class-item .class-info {
+    margin-bottom: 10px;
+}
+
+.class-item .class-actions {
+    text-align: center;
+}
+
+.class-item .class-actions a {
+    text-decoration: none;
+    margin: 5px;
+}
+
+.class-item .class-actions button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(73, 12, 131, 0.918);
+}
+
+.class-item .class-actions button:hover {
+    background-color: #df4c08;}
+
+.button-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f2f2f2; /* Color de fondo */
+}
+
+.button-container a {
+    text-decoration: none;
+    margin: 10px;
+}
+
+.button-container button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(73, 12, 131, 0.918);
+}
+
+.button-container button:hover {
+    background-color: #df4c08;
+}

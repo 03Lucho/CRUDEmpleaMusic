@@ -1,0 +1,60 @@
+/* Establece un fondo de pantalla */
+body {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/fonsomusical.jpg");
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%; 
+    max-width: 800px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #14c4c49a;
+    box-shadow: 0 4px 8px rgba(175, 15, 15, 0.918);
+}
+
+button {
+    padding: 10px 20px; /* Espaciado interno del botón */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 10px; /* Margen exterior del botón */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(73, 12, 131, 0.918);
+}
+
+button:hover {
+    background-color: #df4c08;
+}
+
+table {
+    border-collapse: collapse;
+    width: auto;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.3); /* Fondo semi-transparente para la tabla */
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(3, 6, 189, 0.986);
+}
+
+table, th, td {
+    border: 2px solid black;
+}
+
+th, td {
+    border: 2px solid #fff; /* Borde blanco */
+    padding: 10px;
+    text-align: center;
+    background-color: #333; /* Color de fondo para las celdas */
+    color: #fff;
+}
+
+th {
+    background-color: #007BFF;
+    color: #fff;
+}

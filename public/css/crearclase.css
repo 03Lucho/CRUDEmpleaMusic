@@ -1,0 +1,52 @@
+/* Estilos generales */
+body {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/fonsomusical.jpg");
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;}
+
+.container {
+    text-align: center;
+    padding: 28px;
+    background-color: #14c4c49a;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(175, 15, 15, 0.918);
+}
+
+/* Estilos para el formulario */
+form {
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input,
+select,
+button {
+    margin-top: 5px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid rgba(22, 36, 235, 0.459);
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(5, 112, 5, 0.829);
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(73, 12, 131, 0.918);
+}
+
+button:hover {
+    background-color: #df4c08;
+}

@@ -1,0 +1,42 @@
+/* Estilos para el cuerpo de la página */
+body {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/fonsomusical.jpg");
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;}
+
+/* Estilos para el contenedor principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #14c4c49a; /* Cambia el color de fondo según tus preferencias */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(189, 3, 3, 0.767); /* Cambia el sombreado según tus preferencias */
+}
+
+/* Estilos para el encabezado */
+h2 {
+    font-size: 28px;
+    color: #333; /* Cambia el color de texto según tus preferencias */
+    margin-bottom: 20px;
+}
+
+/* Estilos para la tabla */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Estilos para las celdas de la tabla */
+th, td {
+    border: 1px solid #333; /* Cambia el color del borde según tus preferencias */
+    padding: 10px;
+    text-align: center;
+}
+
+/* Estilos para las filas impares (para un efecto de zebra) */
+tr:nth-child(odd) {
+    background-color: #18ad51; /* Cambia el color de fondo según tus preferencias */
+}

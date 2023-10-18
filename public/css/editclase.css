@@ -1,0 +1,49 @@
+/* Establece un fondo de pantalla */
+body {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/fonsomusical.jpg");
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 28px;
+    background-color: #14c4c49a;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(175, 15, 15, 0.918);
+}
+
+.form-group {
+    margin-bottom: 20px; /* Espaciado entre grupos de formularios */
+}
+
+label {
+    font-weight: bold; /* Texto en negrita */
+}
+
+input[type="text"],
+input[type="time"],
+input[type="date"] {
+    width: 100%; /* Ancho completo para los campos de texto, tiempo y fecha */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados del campo */
+    font-size: 16px; /* Tamaño de fuente */
+    border: 1px solid rgba(22, 36, 235, 0.459);
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(5, 112, 5, 0.829);
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(73, 12, 131, 0.918);
+}
+
+button:hover {
+    background-color: #df4c08;}

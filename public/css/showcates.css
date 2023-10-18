@@ -1,0 +1,48 @@
+/* Establece una imagen de fondo */
+body {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/fonsomusical.jpg");
+  }
+  
+  /* Centra la tabla verticalmente y horizontalmente */
+  .table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(175, 15, 15, 0.918);
+  }
+  
+  /* Estilos para la tabla y sus elementos */
+  table {
+    border-collapse: collapse;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: auto;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.834); /* Fondo semi-transparente para la tabla */
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(3, 6, 189, 0.986);
+  }
+  
+  table, th, td {
+    border: 2px solid black;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Estilo para filas impares */
+  tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.1); /* Color de fondo para filas impares */
+  }
+  
