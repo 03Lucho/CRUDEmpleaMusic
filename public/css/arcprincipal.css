@@ -23,7 +23,7 @@ body {
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(14, 2, 138, 0.918);
+    box-shadow: 0 4px 8px rgba(138, 2, 2, 0.918);
 }
 
 .container button:hover {
@@ -48,7 +48,7 @@ h2 {
     padding: 20px;
     width: 300px; /* Ancho de cada elemento */
     border-radius: 8px;
-    background-color: #14c4c49a;
+    background-color: #ffecec;
     box-shadow: 0 4px 8px rgba(175, 15, 15, 0.918);
 }
 

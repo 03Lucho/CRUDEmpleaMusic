@@ -43,9 +43,9 @@
                         @csrf
                     </form>
                     @else
-                    <a href="{{ route('login') }}" class="btn btn-primary m-1">Iniciar Sesión</a>
+                    <a href="{{ route('login') }}" class="btn btn-primary m-1" style="background: none">Iniciar Sesión</a>
                     @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="btn btn-success m-1">Registrar</a>
+                    <a href="{{ route('register') }}" class="btn btn-success m-1" style="background: none" style="text-decoration-color: azure">Registrar</a>
                     @endif
                     @endauth
                 </div>
@@ -59,7 +59,7 @@
                     <div class="text-center">
                         <h1 class="mx-auto my-0 text-uppercase">C-Crea</h1>
                         <h2 class="text-white-50 mx-auto mt-2 mb-5">Academia dedicada en la recreacion y en el aprovechamiento del tiempo libre mediante la practica de actividades</h2>
-                        <a class="btn btn-primary" href="#about">Empezar</a>
+                        <a class="btn btn-primary" href="#about" style="color: white">Empezar</a>
                     </div>
                 </div>
             </div>

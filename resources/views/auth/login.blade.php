@@ -16,10 +16,10 @@
                                     <img src="assets/logo.ico" alt="">
                                 </div>
                                 <div class="form-group row">
-                                    <label for="role" class="col-md-4 col-form-label text-md-end">{{ __('Rol') }}</label>
+                                    <label for="role" class="col-md-4 col-form-label text-md-end" hidden>{{ __('Rol') }}</label hidden>
 
-                                    <div class="col-md-6">
-                                        <select id="role" class="form-control" name="role" required>
+                                    <div class="col-md-6" hidden>
+                                        <select id="role" class="form-control" name="role" required hidden>
                                             <option value="aprendiz">Aprendiz</option>
                                             <option value="profesor">Docente</option>
                                             <option value="admin">Admin</option>

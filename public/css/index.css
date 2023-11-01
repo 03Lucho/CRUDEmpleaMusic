@@ -92,12 +92,11 @@ img {
     color: #2980b9;
 }
 .testimonial-section {
-    overflow-x: auto;
-    white-space: nowrap;
-    padding: 20px 0;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh; /* Opcional para centrar verticalmente también */
 }
-
 .testimonial-container {
     display: flex;
 }
