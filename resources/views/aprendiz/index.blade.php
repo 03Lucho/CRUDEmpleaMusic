@@ -13,7 +13,7 @@
     @endif
     <section class="testimonial-section">
         <div class="testimonial-container">
-            @foreach ($aprendices as $aprendiz)
+            @foreach ($aprendiz as $aprendiz)
                 <div class="testimonial-card">
                     <div class="card-up" style="background-image: url('{{ asset('storage/fotos_aprendiz/' . $aprendiz->Imagen) }}');"></div>
                     <div class="avatar mx-auto bg-white">
