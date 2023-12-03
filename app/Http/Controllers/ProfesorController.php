@@ -17,19 +17,27 @@ class ProfesorController extends Controller
     /**
      * Mostrar las clases creadas por el profesor
      */
-    public function index($codigo)
+    public function index($codigo = null)
     {
-        $clase = DB::table('clases')
+        $clases = DB::table('clases')
             ->join('profesores', 'profesores.idprofesor', '=', 'clases.idprofesor')
             ->join('categorias', 'categorias.idcategoria', '=', 'clases.idcategoria')
-            ->select('clases.idprofesor', 'clases.idclase', 'clases.nombre as nombre', 'clases.idcategoria', 'categorias.nombre as nomins', 'clases.descripcion as descripcion', 'clases.fecha as fecha', 'clases.horainicio as horainicio', 'clases.horafin as horafin','clases.cupos', 'clases.costo as costo')
+            ->select('clases.idprofesor', 'clases.idclase', 'clases.nombre as nombre', 'clases.idcategoria', 'categorias.nombre as nomins', 'clases.descripcion as descripcion', 'clases.fecha as fecha', 'clases.horainicio as horainicio', 'clases.horafin as horafin', 'clases.cupos', 'clases.costo as costo')
             ->where('clases.idprofesor', '=', $codigo)
-            ->where('clases.fecha', '>',now())
+            ->where('clases.fecha', '>', now())
             ->orderby('clases.nombre', 'ASC')
             ->get();
     
-        return view('profesores/index', ['clase' => $clase, 'codigo' => $codigo]);
+        // Obtén el ID del profesor de la primera clase o establece null si no hay clases
+        $idprofesor = $clases->isNotEmpty() ? $clases->first()->idprofesor : null;
+    
+        // Almacena el ID del profesor en la sesión
+        session(['idprofe' => $idprofesor]);
+    
+        return view('profesores/index', ['clases' => $clases, 'codigo' => $codigo, 'idprofesor' => $idprofesor]);
     }
+    
+    
     
 
     //mostrar el perfil del profesor
@@ -41,9 +49,12 @@ class ProfesorController extends Controller
             ->where('idprofesor', '=', $codigoprofe)
             ->get();
     
-        return view('profesores/perfil', ['profesor' => $profesor]);
+        return view('profesores/perfil', ['profesor' => $profesor, 'idprofesor' => $codigoprofe]);
     }
     
+    
+    
+
 
     //Crear el perfil del profesor
     public function perfilcreate($idusuario)
@@ -230,6 +241,11 @@ class ProfesorController extends Controller
         ]);
 
     $clase = Clase::find($id);
+    $request->validate([
+        'fechahora' => 'required|after:' . $clase->fecha . 'T' . $clase->horainicio,
+        // Otras reglas de validación...
+    ]);
+
     if ($clase) {
         $clase->cupos = $clase->cupos - 1;
         $clase->save();

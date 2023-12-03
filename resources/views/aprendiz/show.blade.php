@@ -33,19 +33,24 @@
                 <td style="border:2px solid black; padding:10px">{{$class->costo}}</td>
                 <td style="border:2px solid black; padding:10px">{{$class->cupos}}</td>
                 <td style="border:2px solid black; padding:10px">{{$class->nameprofe}}</td>
-                @if ($class->cupos>0)
-                <td style="padding:10px">
+                @php
+                $claseAgendada = $agenditas->where('idclase', $class->idclase)->where('idaprendiz', $aprendiz->idaprendiz)->first();
+                @endphp
+            <td style="border:2px solid black; padding:10px">
+                @if ($claseAgendada)
+                    <h4>Estas agendad@</h4>
+                @elseif ($class->cupos > 0)
                     <a href="{{ route('agendar.clase', ['idclase' => $class->idclase]) }}">
-                   <button>Agendar</button>
+                        <button>Agendar</button>
                     </a>
-                </td>
                 @endif
-             @empty
-            @endforelse
-        </table>
-    </div>
-     <div style="text-align: center; margin-top:2%">
-        {{-- <a href="{{ route('aprendiz.comenaprendiz') }}"><button>Realizar comentario</button></a> --}}
-    </div>
+            </td>
+        </tr>
+    @empty        
+    @endforelse
+</table>
+</div>
+<div style="text-align: center; margin-top:2%">
+</div>
 </body>
 </html>

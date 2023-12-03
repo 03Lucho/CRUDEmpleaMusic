@@ -10,6 +10,7 @@
     <!-- font icons -->
     <link rel="stylesheet" href="asset/vendors/themify-icons/css/themify-icons.css">
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 @if (session('success'))
 <p>{{ session('success') }}</p>
@@ -81,9 +82,26 @@
         </div>
     </div>
     <div id="botones">
-        <a href="{{ route('aprendices.show', ['aprendiz' => $aprendices->idaprendiz]) }}">Clases</a>
+        <a href="#" onclick="mostrarDatos('{{ route('aprendices.show', ['aprendiz' => $aprendices->idaprendiz]) }}')">Clases</a>
+        <script>
+            function mostrarDatos(url) {
+                // Realizar petición AJAX
+                $.ajax({
+                    url: url,
+                    method: 'GET',
+                    success: function (data) {
+                        // Manejar los datos recibidos, por ejemplo, mostrarlos en un div
+                        $('#resultado').html(data);
+                    },
+                    error: function (error) {
+                        console.error('Error al obtener los datos:', error);
+                    }
+                });
+            }
+        </script>
         <a href="{{ route('aprendices.edit', ['idaprendiz' => $aprendices->idaprendiz]) }}">Editar</a>
     </div>
+    <div id="resultado" ></div>
 </body>
 <footer class="footer py-3">
     <div class="container">

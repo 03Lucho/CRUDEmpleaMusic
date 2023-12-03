@@ -10,6 +10,48 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+.colornotas{
+  position: fixed;
+  padding-block-end: 100px;
+  margin-left: 150px;
+}
+
+/*ANIMACION NEON C-CREA*/
+body {
+background-color: #000;
+color: #16899d;
+}
+body h1{
+  margin: 0;
+  padding-bottom: 6rem;
+  grid-column: 1;
+  grid-row: 1;
+  z-index: 1;
+  font-family: 'Teko','sans-serif';
+  font-size: 10rem;
+  text-transform: uppercase;
+  animation: glow 2s ease-in-out infinite alternate;
+  text-align: center;
+}
+body img{
+width: 100%;
+height: 100vh;
+object-fit:cover;
+grid-column: 1;
+grid-row: 1;
+z-index: 0;
+}
+
+@keyframes glow{
+from{
+  text-shadow: 0 0 20px #1891a7;
+}
+to{
+text-shadow: 0 0 30px #1cabc4, 0 0 10px #1cabc4;
+}
+}
+/*ANIMACION NEON C-CREA*/
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;

@@ -17,7 +17,7 @@
       
     </head>
     <body id="page-top">
-        {{-- @include('layouts/app') --}}
+        
 
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container px-4 px-lg-5">
@@ -38,6 +38,14 @@
                 @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                     @auth
+                    @if(Auth::user()->hasRole('admin'))
+                    <a class="colornotas" href="{{ route('admins.index')}}">Perfil</a>
+                @elseif(Auth::user()->hasRole('aprendiz'))
+                <a class="colornotas" href="{{ route('aprendices.profileA', ['codigoA' => session('idapre')]) }}">Perfil</a>
+                @elseif(Auth::user()->hasRole('profesor'))
+                <a class="colornotas" href="{{ route('profesores.perfill', ['codigoprofe' => session('idprofe')]) }}">Perfil</a>
+                @endif
+            
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Cerrar Sesión</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf

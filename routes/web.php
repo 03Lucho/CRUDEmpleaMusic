@@ -20,7 +20,7 @@ Route::get('/', function () {
 //profesores
 Route::middleware(['auth', 'checkRole:profesor'])->group(function () {
     //index
-    Route::get('Profesores/index/{codigo}','App\Http\Controllers\ProfesorController@index')->name('profesores.index');
+    Route::get('Profesores/index/{codigo?}', 'App\Http\Controllers\ProfesorController@index')->name('profesores.index');
     //perfil
     Route::get('Profesores/crearperfil/{idusuario}','App\Http\Controllers\ProfesorController@perfilcreate')->name('profesores.createperfil');
     Route::post('Profesores/agregarperfil','App\Http\Controllers\ProfesorController@perfilstore')->name('profesores.storeperfil');

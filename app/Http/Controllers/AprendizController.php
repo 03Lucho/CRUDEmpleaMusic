@@ -89,14 +89,22 @@ class AprendizController extends Controller
      //Mostrar Perfil
      public function profileA($codigoA)
      {
-         // Realiza la consulta y obtén una colección de resultados
-         $aprendiz = DB::table('aprendizes')
-             ->select('idaprendiz', 'nombre', 'apellido', 'Imagen', 'telefono', 'descripcion', 'documento', 'user_id')
-             ->where('idaprendiz', '=', $codigoA)
-             ->get();
+        // Realiza la consulta y obtén una colección de resultados
+        $aprendiz = DB::table('aprendizes')
+            ->select('idaprendiz', 'nombre', 'apellido', 'Imagen', 'telefono', 'descripcion', 'documento', 'user_id')
+            ->where('idaprendiz', '=', $codigoA)
+            ->get();
+
+            session(['idapre' => $codigoA]);
+        // Verifica si se encontró un aprendiz
+        if ($aprendiz) {
+            return view('aprendiz.perfil', ['aprendiz' => $aprendiz]);
+        } else {
+            // Manejo de error si el aprendiz no se encuentra
+            return abort(404); // Puedes personalizar este manejo de error según tus necesidades
+        }
+    }
      
-         return view('aprendiz/perfil', ['aprendiz' => $aprendiz]);
-     }
      
 
     public function show(Aprendiz $aprendiz) 
@@ -108,7 +116,11 @@ class AprendizController extends Controller
         ->where('fecha', '>' ,now())
         ->orderby('clases.nombre', 'ASC')
         ->get();
-        return view('aprendiz.show', ['clase' => $clase]);
+
+        $agenditas= DB::table('agendas')
+        ->get();
+
+        return view('aprendiz.show', ['clase' => $clase , 'aprendiz' =>$aprendiz, 'agenditas' => $agenditas]);
     
     }
     
@@ -162,7 +174,8 @@ class AprendizController extends Controller
     {
         $idaprendiz = session('idAprendiz');
         $clase = Clase::find($idclase);
-    
+
+
         if (!$clase) {
             return redirect()->route('aprendices.index')->with('error', 'La clase seleccionada no existe.');
         }

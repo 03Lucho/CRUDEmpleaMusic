@@ -19,7 +19,7 @@
 
     <h2 style="color: white">Mis clases creadas</h2>
     <div class="centered-container">
-        @forelse ($clase as $class)
+        @forelse ($clases as $class)
             <div class="class-item">
                 
                 <div class="class-info">

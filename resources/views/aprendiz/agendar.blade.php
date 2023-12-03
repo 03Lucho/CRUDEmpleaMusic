@@ -41,7 +41,7 @@
         <input type="hidden" name="idaprendiz" value="{{ $idaprendiz }}">
         <input type="hidden" name="idclase" value="{{ $clase->idclase }}">
         <label for="fechahora">Fecha Y Hora:</label>
-        <input type="datetime-local" id="fechahora" name="fechahora">
+        <input type="datetime-local" id="fechahora" name="fechahora" min="{{ $clase->fecha . 'T' . $clase->horainicio }}">
         <br>
 
         <label for="descripcion">Descripción:</label>
