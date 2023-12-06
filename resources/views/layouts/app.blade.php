@@ -63,7 +63,7 @@
                                     @elseif(Auth::user()->hasRole('aprendiz'))
                                     <a class="dropdown-item" href="{{ route('aprendices.profileA', ['codigoA' => session('idapre')]) }}">Perfil</a>
                                     @elseif(Auth::user()->hasRole('profesor'))
-                                        <a class="colornotas" href="{{ route('profesores.perfill', ['codigoprofe' => session('idprofe')]) }}">Perfil</a>
+                                        {{-- <a class="colornotas" href="{{ route('profesores.perfill', ['codigoprofe' => session('idprofe')]) }}">Perfil</a> --}}
                                     @endif
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

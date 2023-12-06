@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Crea perfil Sesión Profesor</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/logo.ico') }}" />
-    <link rel="stylesheet" href="{{ asset('css/registrodocente.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/create.css') }}">
 </head>
 
 <body style="text-align: center">
-    @include('layouts/app')
+    {{-- @include('layouts/app') --}}
     <div class="container">
         <h1>Crea tu perfil de Docente</h1>
         <form action="{{ route('profesores.storeperfil') }}" method="POST" enctype="multipart/form-data">

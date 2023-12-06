@@ -1,49 +1,54 @@
-/* Estilos generales */
 body {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/fonsomusical.jpg");
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
-    padding: 0;
 }
 
 .container {
-    text-align: center;
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    background-color: #14c4c49a;
-    box-shadow: 0 4px 8px rgba(175, 15, 15, 0.918);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para la información del perfil */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
 .profile-info {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-    margin-top: 20px;
+    justify-content: space-around;
 }
 
 .profile-item {
-    text-align: left;
-    padding: 10px;
-    width: 45%;
-    background-color: #d85c5c67;
-    border: 2px solid rgb(27, 8, 112);
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(122, 7, 189, 0.883);
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-item img {
+    border-radius: 50%;
 }
 
 button {
-    padding: 8px 12px;
-    background-color: #007bff;
-    color: white;
+    background-color: #3498db;
+    color: #fff;
     border: none;
-    border-radius: 4px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 8px rgba(73, 12, 131, 0.918);
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #df4c08;
+    background-color: #2980b9;
+    transform: scale(1.05);
 }

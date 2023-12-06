@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{{ asset('css/editperfil.css') }}">
 </head>
 <body>
-    @include('layouts/app')
     <div class="container">
         <form action="{{route('profesores.perfilupdate',$profesor->idprofesor)}}" method='POST' enctype="multipart/form-data">
             @csrf

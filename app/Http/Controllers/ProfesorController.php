@@ -241,10 +241,10 @@ class ProfesorController extends Controller
         ]);
 
     $clase = Clase::find($id);
-    $request->validate([
-        'fechahora' => 'required|after:' . $clase->fecha . 'T' . $clase->horainicio,
-        // Otras reglas de validación...
-    ]);
+    // $request->validate([
+    //     'fechahora' => 'required|after:' . $clase->horafin . 'T|before:' . $clase->horainicio . 'T',
+    //     // Otras reglas de validación...
+    // ]);    
 
     if ($clase) {
         $clase->cupos = $clase->cupos - 1;

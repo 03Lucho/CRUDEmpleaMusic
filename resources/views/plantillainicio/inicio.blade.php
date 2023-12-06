@@ -17,7 +17,6 @@
       
     </head>
     <body id="page-top">
-        
 
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container px-4 px-lg-5">
@@ -41,9 +40,9 @@
                     @if(Auth::user()->hasRole('admin'))
                     <a class="colornotas" href="{{ route('admins.index')}}">Perfil</a>
                 @elseif(Auth::user()->hasRole('aprendiz'))
-                <a class="colornotas" href="{{ route('aprendices.profileA', ['codigoA' => session('idapre')]) }}">Perfil</a>
+                {{-- <a class="colornotas" href="{{ route('aprendices.profileA', ['codigoA' => session('idapre')]) }}">Perfil</a> --}}
                 @elseif(Auth::user()->hasRole('profesor'))
-                <a class="colornotas" href="{{ route('profesores.perfill', ['codigoprofe' => session('idprofe')]) }}">Perfil</a>
+                {{-- <a class="colornotas" href="{{ route('profesores.perfill', ['codigoprofe' => session('idprofe')]) }}">Perfil</a> --}}
                 @endif
             
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Cerrar Sesión</a>
@@ -59,6 +58,7 @@
                 </div>
                 @endif
             </div>
+
         </nav>
         <!-- Masthead-->
         <header class="masthead">
@@ -223,7 +223,49 @@
         </section>
         </section>
         <!-- Footer-->
-        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Derechos reservados &copy; C-Crea</div></footer>
+        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Derechos reservados &copy; C-Crea</div>
+            <audio id="canau" autoplay loop>
+                <source src="/media/sh.mp3" type="audio/mp3">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            
+            <script>
+                // Obtén la referencia al elemento de audio
+                var audio = document.getElementById('canau');
+            
+                // Configura el volumen (0.0 - 1.0)
+                audio.volume = 0.1; // Establece el volumen al 50%
+            </script>
+            
+{{-- BOTON MUTE SONG --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-nv4+TmFlvH1d7FVf5wvFDT5dYOrPXibPrEgY7iVr0K+tpb+vjHcve5U7irK5v6Jw4h9ELV1d4OLbs/1eDz+I6lw=="
+crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<div id="song">
+<button  onclick="toggleMute()">
+   <i id="muteIcon" class="fas fa-volume-up"></i> <!-- Ícono de altavoz -->
+</button>
+</div>
+
+<script>
+   var audio = document.getElementById('canau');
+   var muteIcon = document.getElementById('muteIcon');
+
+   function toggleMute() {
+       if (audio.muted) {
+           audio.muted = false;
+           muteIcon.classList.remove('fa-volume-mute'); // Cambia el ícono a altavoz desmuteado
+           muteIcon.classList.add('fa-volume-up');
+       } else {
+           audio.muted = true;
+           muteIcon.classList.remove('fa-volume-up'); // Cambia el ícono a altavoz muteado
+           muteIcon.classList.add('fa-volume-mute');
+       }
+   }
+</script>
+
+{{-- BOTON MUTE SONG --}}
+
+        </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

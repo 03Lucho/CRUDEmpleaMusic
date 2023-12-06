@@ -1,106 +1,81 @@
-/* principal.css */
 body {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/fonsomusical.jpg");
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0; /* Cambia el color de fondo según tus preferencias */
+    color: #333;
     margin: 0;
     padding: 0;
 }
 
 .container {
     text-align: center;
-    padding: 20px;
+    margin-top: 20px;
 }
 
-.container a {
-    text-decoration: none;
-    margin: 10px;
-}
-
-.container button {
-    background-color: #27ae60; /* Color del botón */
-    border: none;
-    color: white;
+button {
+    background-color: #3498db;
+    color: #fff;
     padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 5px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(138, 2, 2, 0.918);
+    font-size: 16px;
+    margin: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.container button:hover {
-    background-color: #df4c08;
-}
-
-h2 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
+button:hover {
+    background-color: #2980b9;
 }
 
 .centered-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
 }
 
 .class-item {
-    padding: 20px;
-    width: 300px; /* Ancho de cada elemento */
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    background-color: #ffecec;
-    box-shadow: 0 4px 8px rgba(175, 15, 15, 0.918);
-}
-
-.class-item .class-info {
-    margin-bottom: 10px;
-}
-
-.class-item .class-actions {
-    text-align: center;
-}
-
-.class-item .class-actions a {
-    text-decoration: none;
-    margin: 5px;
-}
-
-.class-item .class-actions button {
-    padding: 8px 12px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 8px rgba(73, 12, 131, 0.918);
-}
-
-.class-item .class-actions button:hover {
-    background-color: #df4c08;}
-
-.button-container {
-    text-align: center;
-    padding: 20px;
-    background-color: #f2f2f2; /* Color de fondo */
-}
-
-.button-container a {
-    text-decoration: none;
     margin: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
 }
 
-.button-container button {
-    padding: 8px 12px;
-    background-color: #007bff;
-    color: white;
+.class-item:hover {
+    transform: scale(1.02);
+}
+
+.class-info, .class-actions {
+    padding: 20px;
+}
+
+.class-info p {
+    margin: 10px 0;
+}
+
+.class-actions button {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 8px 16px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 14px;
+    margin: 5px;
     transition: background-color 0.3s ease;
-    box-shadow: 0 4px 8px rgba(73, 12, 131, 0.918);
 }
 
-.button-container button:hover {
-    background-color: #df4c08;
+.class-actions button:hover {
+    background-color: #27ae60;
 }
+
+h2 {
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Agrega animaciones según tus necesidades */

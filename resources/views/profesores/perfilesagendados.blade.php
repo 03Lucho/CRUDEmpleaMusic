@@ -26,7 +26,7 @@
             </tr>
             @forelse ($aprendizes as $apren)
                 <tr>
-                <td >{{$apren->Imagen}}</td>    
+                <td style="background-image: url('{{ asset('storage/fotos_aprendiz/' . $apren->Imagen) }}');"></td>
                 <td >{{$apren->nombre}}</td>
                 <td >{{$apren->apellido}}</td>
                 <td >{{$apren->telefono}}</td>

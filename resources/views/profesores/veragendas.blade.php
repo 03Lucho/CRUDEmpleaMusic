@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    @include('layouts/app')
+
     <div class="container">
         <h2>Agendas</h2>
         <div class="table-container">
