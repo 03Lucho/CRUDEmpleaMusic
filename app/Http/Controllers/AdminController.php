@@ -20,8 +20,8 @@ class AdminController extends Controller
     public function showcates()
     {
         //
-        $categorias = Categoria :: all();
-
+        $categorias = Categoria::orderBy('nombre', 'asc')->get();
+        
         return view ('administradores/showcates',['categorias'=>$categorias]);
     }
     //Eliminar comentarios
