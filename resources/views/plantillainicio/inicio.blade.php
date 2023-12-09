@@ -79,9 +79,9 @@
                     <div class="col-lg-8">
                         <h2 class="text-white mb-4">Sobre Nosotros</h2>
                         <p class="text-white-50">
-                            Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
-                           
-                            The theme is open source, and you can use it for any purpose, personal or commercial.
+                        En c-crea incorporamos el amor al arte con la educacion; somos los primeros en la ciudad de tunja
+                        
+                        en traer distintas areas artisticas al mismo tiempo para cualquier persona.
                         </p>
                     </div>
                 </div>

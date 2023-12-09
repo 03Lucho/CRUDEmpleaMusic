@@ -13,7 +13,7 @@
 <body>
 
     <div class="container">
-        <h2>Agendas</h2>
+        <h1>Información Agendas</h1>
         <div class="table-container">
             <table>
                 <tr>

@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     color: #333; /* Texto más oscuro */
+    height: 80%;
 }
 
 /* Estilos para el contenedor principal */

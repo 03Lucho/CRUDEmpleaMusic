@@ -14,6 +14,8 @@ class AdminController extends Controller
     {
         //
         $comentario= Comentario ::all();
+        $comentario = Comentario::orderBy('tipo', 'asc')->get();
+
     return view ('administradores/index',['comentario'=>$comentario]);
     }
     //Mostrar categorias

@@ -91,6 +91,7 @@
         <ul>
           <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
           <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Clases</span></a></li>
+          <li><a href="#facts" class="nav-link scrollto" id="perfilLink"><i class="bx bx-user"></i> <span>Perfil</span></a></li>
         </ul>
       </nav><!-- .nav-menu -->
     </div>
@@ -106,11 +107,13 @@
     </div>
   </section><!-- End Hero -->
 
-  <main id="main" style="align-self: flex-start">
-      <br>
+  <main id="main">
     <div class="section-title">
       <h2>Informacion De Las Clases</h2>
-    </div>
+    </div>    
+    <div class="btn-container">
+      <a href="{{ route('profesores.create', $codigo) }}"><button>Crear clase</button></a>
+      </div>
     @forelse ($clases as $class)
 
     <!-- ======= Info Clase ======= -->
@@ -130,57 +133,28 @@
 
         <div class="btn-container">
         <a href="{{ route('profesores.editarclases', ['id' => $class->idclase, 'codigo' => $codigo]) }}"><button>Editar</button></a>
-        <a href="{{ route('profesores.create', $codigo) }}"><button>Crear clase</button></a>
       </div>
+      <div class="btn-container">
+        <button onclick="toggleAgendasView({{ $class->idclase }})">Ver agendas</button>
+    </div>
       </div>
     </section><!-- End class Section -->
     @empty
     @endforelse
 
-
-    <!-- ======= Editar perfil ======= -->
-<section id="facts" class="facts">
-    <div class="container">
-        <div class="section-title">
-            <h2>Editar Perfil</h2>
-            <div class="btn-container">
-                <button onclick="togglePerfilView('{{ route("profesores.perfill", $codigo) }}')">Perfil</button>
-            </div>
-            <div id="perfilContainer"></div>
-        </div>
-    </div>
-</section>
-
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-    let perfilViewOpen = false;
-
-    function togglePerfilView(url) {
-        if (perfilViewOpen) {
-            // Si la vista del perfil está abierta, cerrarla
-            $('#perfilContainer').empty();
-            perfilViewOpen = false;
-        } else {
-            // Si la vista del perfil está cerrada, cargarla en un iframe
-            $('#perfilContainer').html('<iframe id="perfilIframe" src="' + url + '" frameborder="0"></iframe>');
-            perfilViewOpen = true;
-        }
-    }
-</script>
-
-
+    @forelse ($clases as $class)
 {{-- AGENDAS --}}
     <section id="facts" class="facts">
       <div class="container">
           <div class="section-title">
-              <h2>Agendas</h2>
-              <div class="btn-container">
-                  <button onclick="toggleAgendasView({{ $class->idclase }})">Ver/Cerrar agendas</button>
-              </div>
               <div id="agendasContainer"></div>
           </div>
       </div>
   </section>
+
+  @empty
+  @endforelse 
+
   
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script>
@@ -198,8 +172,43 @@
           }
       }
   </script>
-  
-  
+
+ 
+
+  <!-- ======= Editar perfil ======= -->
+  <section id="facts" class="facts">
+    <div class="container">
+        <div class="section-title">
+            <div id="perfilContainer"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Añade tus scripts al final del cuerpo -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    let perfilViewOpen = false;
+
+    function togglePerfilView(url) {
+        if (perfilViewOpen) {
+            // Si la vista del perfil está abierta, cerrarla
+            $('#perfilContainer').empty();
+            perfilViewOpen = false;
+        } else {
+            // Si la vista del perfil está cerrada, cargarla en un iframe
+            $('#perfilContainer').html('<iframe id="perfilIframe" src="' + url + '" frameborder="0"></iframe>');
+            perfilViewOpen = true;
+        }
+    }
+
+    // Agrega un evento de clic al enlace con ID "perfilLink"
+    $('#perfilLink').on('click', function (e) {
+        e.preventDefault(); // Evita el comportamiento predeterminado del enlace
+        togglePerfilView('{{ route("profesores.perfill", $codigo) }}');
+    });
+</script>
+
+
   
   
   
